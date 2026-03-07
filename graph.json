@@ -1,0 +1,1012 @@
+{
+  "nodes": [
+    {
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/client/next.config.js",
+      "type": "file",
+      "extension": ".js",
+      "loc": 20,
+      "sizeBytes": 383,
+      "fileType": "config"
+    },
+    {
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/client/postcss.config.js",
+      "type": "file",
+      "extension": ".js",
+      "loc": 7,
+      "sizeBytes": 89,
+      "fileType": "config"
+    },
+    {
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/client/tailwind.config.js",
+      "type": "file",
+      "extension": ".js",
+      "loc": 16,
+      "sizeBytes": 328,
+      "fileType": "config"
+    },
+    {
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/index.js",
+      "type": "file",
+      "extension": ".js",
+      "loc": 56,
+      "sizeBytes": 1523,
+      "fileType": "other"
+    },
+    {
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/developers/src/App.js",
+      "type": "file",
+      "extension": ".js",
+      "loc": 16,
+      "sizeBytes": 294,
+      "fileType": "other"
+    },
+    {
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/developers/src/index.js",
+      "type": "file",
+      "extension": ".js",
+      "loc": 11,
+      "sizeBytes": 267,
+      "fileType": "other"
+    },
+    {
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/controllers/adminController.js",
+      "type": "file",
+      "extension": ".js",
+      "loc": 66,
+      "sizeBytes": 1795,
+      "fileType": "other"
+    },
+    {
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/controllers/authController.js",
+      "type": "file",
+      "extension": ".js",
+      "loc": 236,
+      "sizeBytes": 7675,
+      "fileType": "other"
+    },
+    {
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/controllers/eventController.js",
+      "type": "file",
+      "extension": ".js",
+      "loc": 230,
+      "sizeBytes": 6872,
+      "fileType": "other"
+    },
+    {
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/controllers/paymentController.js",
+      "type": "file",
+      "extension": ".js",
+      "loc": 148,
+      "sizeBytes": 5007,
+      "fileType": "other"
+    },
+    {
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/controllers/smsController.js",
+      "type": "file",
+      "extension": ".js",
+      "loc": 65,
+      "sizeBytes": 3037,
+      "fileType": "other"
+    },
+    {
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/controllers/userDashboard.js",
+      "type": "file",
+      "extension": ".js",
+      "loc": 18,
+      "sizeBytes": 374,
+      "fileType": "hook"
+    },
+    {
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/models/admin.js",
+      "type": "file",
+      "extension": ".js",
+      "loc": 57,
+      "sizeBytes": 1350,
+      "fileType": "other"
+    },
+    {
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/models/event.js",
+      "type": "file",
+      "extension": ".js",
+      "loc": 51,
+      "sizeBytes": 1111,
+      "fileType": "other"
+    },
+    {
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/models/otpAuth.js",
+      "type": "file",
+      "extension": ".js",
+      "loc": 23,
+      "sizeBytes": 485,
+      "fileType": "other"
+    },
+    {
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/models/user.js",
+      "type": "file",
+      "extension": ".js",
+      "loc": 36,
+      "sizeBytes": 822,
+      "fileType": "hook"
+    },
+    {
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/routes/adminRoutes.js",
+      "type": "file",
+      "extension": ".js",
+      "loc": 14,
+      "sizeBytes": 349,
+      "fileType": "other"
+    },
+    {
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/routes/authRoutes.js",
+      "type": "file",
+      "extension": ".js",
+      "loc": 16,
+      "sizeBytes": 395,
+      "fileType": "other"
+    },
+    {
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/routes/eventRoutes.js",
+      "type": "file",
+      "extension": ".js",
+      "loc": 19,
+      "sizeBytes": 475,
+      "fileType": "other"
+    },
+    {
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/routes/paymentRoute.js",
+      "type": "file",
+      "extension": ".js",
+      "loc": 8,
+      "sizeBytes": 208,
+      "fileType": "other"
+    },
+    {
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/routes/userDashboardRoutes.js",
+      "type": "file",
+      "extension": ".js",
+      "loc": 8,
+      "sizeBytes": 212,
+      "fileType": "hook"
+    },
+    {
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/client/src/components/AdminDropdown.js",
+      "type": "file",
+      "extension": ".js",
+      "loc": 89,
+      "sizeBytes": 3647,
+      "fileType": "component"
+    },
+    {
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/client/src/components/AdminNavBar.js",
+      "type": "file",
+      "extension": ".js",
+      "loc": 96,
+      "sizeBytes": 3715,
+      "fileType": "component"
+    },
+    {
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/client/src/components/CreateEventForm.js",
+      "type": "file",
+      "extension": ".js",
+      "loc": 249,
+      "sizeBytes": 9935,
+      "fileType": "component"
+    },
+    {
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/client/src/components/Dashboard_Filter.js",
+      "type": "file",
+      "extension": ".js",
+      "loc": 123,
+      "sizeBytes": 4472,
+      "fileType": "component"
+    },
+    {
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/client/src/components/LandingPage.js",
+      "type": "file",
+      "extension": ".js",
+      "loc": 43,
+      "sizeBytes": 1460,
+      "fileType": "component"
+    },
+    {
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/client/src/components/Popup_Filter.js",
+      "type": "file",
+      "extension": ".js",
+      "loc": 140,
+      "sizeBytes": 5280,
+      "fileType": "component"
+    },
+    {
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/client/src/components/UserDropdown.js",
+      "type": "file",
+      "extension": ".js",
+      "loc": 107,
+      "sizeBytes": 4727,
+      "fileType": "component"
+    },
+    {
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/client/src/components/UserNavBar.js",
+      "type": "file",
+      "extension": ".js",
+      "loc": 102,
+      "sizeBytes": 3992,
+      "fileType": "component"
+    },
+    {
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/client/src/pages/index.js",
+      "type": "file",
+      "extension": ".js",
+      "loc": 12,
+      "sizeBytes": 238,
+      "fileType": "page"
+    },
+    {
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/client/src/pages/_app.js",
+      "type": "file",
+      "extension": ".js",
+      "loc": 16,
+      "sizeBytes": 400,
+      "fileType": "page"
+    },
+    {
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/client/src/pages/_document.js",
+      "type": "file",
+      "extension": ".js",
+      "loc": 14,
+      "sizeBytes": 292,
+      "fileType": "page"
+    },
+    {
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/client/src/utils/dummyUsers.js",
+      "type": "file",
+      "extension": ".js",
+      "loc": 93,
+      "sizeBytes": 2403,
+      "fileType": "utility"
+    },
+    {
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/client/src/utils/getAdminToken.js",
+      "type": "file",
+      "extension": ".js",
+      "loc": 8,
+      "sizeBytes": 159,
+      "fileType": "utility"
+    },
+    {
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/client/src/utils/getUserToken.js",
+      "type": "file",
+      "extension": ".js",
+      "loc": 8,
+      "sizeBytes": 157,
+      "fileType": "utility"
+    },
+    {
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/client/src/utils/landing_page_developers.js",
+      "type": "file",
+      "extension": ".js",
+      "loc": 55,
+      "sizeBytes": 1680,
+      "fileType": "page"
+    },
+    {
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/client/src/utils/removeAdminToken.js",
+      "type": "file",
+      "extension": ".js",
+      "loc": 10,
+      "sizeBytes": 188,
+      "fileType": "utility"
+    },
+    {
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/client/src/utils/removeUserToken.js",
+      "type": "file",
+      "extension": ".js",
+      "loc": 10,
+      "sizeBytes": 186,
+      "fileType": "utility"
+    },
+    {
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/client/src/utils/setAdminToken.js",
+      "type": "file",
+      "extension": ".js",
+      "loc": 12,
+      "sizeBytes": 352,
+      "fileType": "utility"
+    },
+    {
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/client/src/utils/setUserToken.js",
+      "type": "file",
+      "extension": ".js",
+      "loc": 12,
+      "sizeBytes": 298,
+      "fileType": "utility"
+    },
+    {
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/client/src/utils/user_dashboard_images.js",
+      "type": "file",
+      "extension": ".js",
+      "loc": 41,
+      "sizeBytes": 726,
+      "fileType": "hook"
+    }
+  ],
+  "edges": [
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/index.js",
+      "to": "express",
+      "type": "import",
+      "isExternal": true
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/index.js",
+      "to": "mongoose",
+      "type": "import",
+      "isExternal": true
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/index.js",
+      "to": "cors",
+      "type": "import",
+      "isExternal": true
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/index.js",
+      "to": "dotenv",
+      "type": "import",
+      "isExternal": true
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/index.js",
+      "to": "cookie-parser",
+      "type": "import",
+      "isExternal": true
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/index.js",
+      "to": "body-parser",
+      "type": "import",
+      "isExternal": true
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/index.js",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/routes/authRoutes.js",
+      "type": "import",
+      "isExternal": false
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/index.js",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/routes/userDashboardRoutes.js",
+      "type": "import",
+      "isExternal": false
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/index.js",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/routes/paymentRoute.js",
+      "type": "import",
+      "isExternal": false
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/index.js",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/routes/adminRoutes.js",
+      "type": "import",
+      "isExternal": false
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/index.js",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/routes/eventRoutes.js",
+      "type": "import",
+      "isExternal": false
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/index.js",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/models/otpAuth.js",
+      "type": "import",
+      "isExternal": false
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/index.js",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/models/user.js",
+      "type": "import",
+      "isExternal": false
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/index.js",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/models/admin.js",
+      "type": "import",
+      "isExternal": false
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/index.js",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/models/event.js",
+      "type": "import",
+      "isExternal": false
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/developers/src/App.js",
+      "to": "./components/header",
+      "type": "import",
+      "isExternal": true
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/developers/src/App.js",
+      "to": "./components/form",
+      "type": "import",
+      "isExternal": true
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/developers/src/App.js",
+      "to": "./components/footer",
+      "type": "import",
+      "isExternal": true
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/developers/src/index.js",
+      "to": "react",
+      "type": "import",
+      "isExternal": true
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/developers/src/index.js",
+      "to": "react-dom/client",
+      "type": "import",
+      "isExternal": true
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/developers/src/index.js",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/developers/src/App.js",
+      "type": "import",
+      "isExternal": false
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/controllers/adminController.js",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/models/admin.js",
+      "type": "import",
+      "isExternal": false
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/controllers/adminController.js",
+      "to": "jsonwebtoken",
+      "type": "import",
+      "isExternal": true
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/controllers/adminController.js",
+      "to": "dotenv",
+      "type": "import",
+      "isExternal": true
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/controllers/authController.js",
+      "to": "express",
+      "type": "import",
+      "isExternal": true
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/controllers/authController.js",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/models/otpAuth.js",
+      "type": "import",
+      "isExternal": false
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/controllers/authController.js",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/models/user.js",
+      "type": "import",
+      "isExternal": false
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/controllers/authController.js",
+      "to": "bcrypt",
+      "type": "import",
+      "isExternal": true
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/controllers/authController.js",
+      "to": "dotenv",
+      "type": "import",
+      "isExternal": true
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/controllers/authController.js",
+      "to": "otp-generator",
+      "type": "import",
+      "isExternal": true
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/controllers/authController.js",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/controllers/smsController.js",
+      "type": "import",
+      "isExternal": false
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/controllers/authController.js",
+      "to": "jsonwebtoken",
+      "type": "import",
+      "isExternal": true
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/controllers/authController.js",
+      "to": "cookie-parser",
+      "type": "import",
+      "isExternal": true
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/controllers/eventController.js",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/models/event.js",
+      "type": "import",
+      "isExternal": false
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/controllers/eventController.js",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/models/admin.js",
+      "type": "import",
+      "isExternal": false
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/controllers/eventController.js",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/models/user.js",
+      "type": "import",
+      "isExternal": false
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/controllers/eventController.js",
+      "to": "dotenv",
+      "type": "import",
+      "isExternal": true
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/controllers/eventController.js",
+      "to": "jsonwebtoken",
+      "type": "import",
+      "isExternal": true
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/controllers/eventController.js",
+      "to": "nodemailer",
+      "type": "import",
+      "isExternal": true
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/controllers/paymentController.js",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/controllers/smsController.js",
+      "type": "import",
+      "isExternal": false
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/controllers/paymentController.js",
+      "to": "express",
+      "type": "import",
+      "isExternal": true
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/controllers/paymentController.js",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/models/user.js",
+      "type": "import",
+      "isExternal": false
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/controllers/paymentController.js",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/models/event.js",
+      "type": "import",
+      "isExternal": false
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/controllers/paymentController.js",
+      "to": "dotenv",
+      "type": "import",
+      "isExternal": true
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/controllers/paymentController.js",
+      "to": "cookie-parser",
+      "type": "import",
+      "isExternal": true
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/controllers/paymentController.js",
+      "to": "stripe",
+      "type": "import",
+      "isExternal": true
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/controllers/paymentController.js",
+      "to": "uuid",
+      "type": "import",
+      "isExternal": true
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/controllers/smsController.js",
+      "to": "nodemailer",
+      "type": "import",
+      "isExternal": true
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/controllers/smsController.js",
+      "to": "dotenv",
+      "type": "import",
+      "isExternal": true
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/controllers/userDashboard.js",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/models/user.js",
+      "type": "import",
+      "isExternal": false
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/models/admin.js",
+      "to": "mongoose",
+      "type": "import",
+      "isExternal": true
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/models/admin.js",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/models/event.js",
+      "type": "import",
+      "isExternal": false
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/models/event.js",
+      "to": "mongoose",
+      "type": "import",
+      "isExternal": true
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/models/otpAuth.js",
+      "to": "mongoose",
+      "type": "import",
+      "isExternal": true
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/models/user.js",
+      "to": "mongoose",
+      "type": "import",
+      "isExternal": true
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/models/user.js",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/models/event.js",
+      "type": "import",
+      "isExternal": false
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/routes/adminRoutes.js",
+      "to": "express",
+      "type": "import",
+      "isExternal": true
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/routes/adminRoutes.js",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/controllers/adminController.js",
+      "type": "import",
+      "isExternal": false
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/routes/authRoutes.js",
+      "to": "express",
+      "type": "import",
+      "isExternal": true
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/routes/authRoutes.js",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/controllers/authController.js",
+      "type": "import",
+      "isExternal": false
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/routes/eventRoutes.js",
+      "to": "express",
+      "type": "import",
+      "isExternal": true
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/routes/eventRoutes.js",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/controllers/eventController.js",
+      "type": "import",
+      "isExternal": false
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/routes/paymentRoute.js",
+      "to": "express",
+      "type": "import",
+      "isExternal": true
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/routes/paymentRoute.js",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/controllers/paymentController.js",
+      "type": "import",
+      "isExternal": false
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/routes/userDashboardRoutes.js",
+      "to": "express",
+      "type": "import",
+      "isExternal": true
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/routes/userDashboardRoutes.js",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/server/controllers/userDashboard.js",
+      "type": "import",
+      "isExternal": false
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/client/src/components/AdminDropdown.js",
+      "to": "react",
+      "type": "import",
+      "isExternal": true
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/client/src/components/AdminDropdown.js",
+      "to": "react-icons/fa",
+      "type": "import",
+      "isExternal": true
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/client/src/components/AdminDropdown.js",
+      "to": "next/router",
+      "type": "import",
+      "isExternal": true
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/client/src/components/AdminDropdown.js",
+      "to": "@/utils/removeAdminToken",
+      "type": "import",
+      "isExternal": true
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/client/src/components/AdminNavBar.js",
+      "to": "@/utils/getAdminToken",
+      "type": "import",
+      "isExternal": true
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/client/src/components/AdminNavBar.js",
+      "to": "next/image",
+      "type": "import",
+      "isExternal": true
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/client/src/components/AdminNavBar.js",
+      "to": "next/router",
+      "type": "import",
+      "isExternal": true
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/client/src/components/AdminNavBar.js",
+      "to": "react",
+      "type": "import",
+      "isExternal": true
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/client/src/components/AdminNavBar.js",
+      "to": "@/components/AdminDropdown",
+      "type": "import",
+      "isExternal": true
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/client/src/components/CreateEventForm.js",
+      "to": "@/utils/getAdminToken",
+      "type": "import",
+      "isExternal": true
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/client/src/components/CreateEventForm.js",
+      "to": "next/router",
+      "type": "import",
+      "isExternal": true
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/client/src/components/CreateEventForm.js",
+      "to": "react",
+      "type": "import",
+      "isExternal": true
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/client/src/components/Dashboard_Filter.js",
+      "to": "rc-slider",
+      "type": "import",
+      "isExternal": true
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/client/src/components/Dashboard_Filter.js",
+      "to": "rc-slider/assets/index.css",
+      "type": "import",
+      "isExternal": true
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/client/src/components/Dashboard_Filter.js",
+      "to": "react",
+      "type": "import",
+      "isExternal": true
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/client/src/components/LandingPage.js",
+      "to": "@/components/Landing_Page_partials/Developers",
+      "type": "import",
+      "isExternal": true
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/client/src/components/LandingPage.js",
+      "to": "@/components/Landing_Page_partials/FeaturesZigZag",
+      "type": "import",
+      "isExternal": true
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/client/src/components/LandingPage.js",
+      "to": "@/components/Landing_Page_partials/Header",
+      "type": "import",
+      "isExternal": true
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/client/src/components/LandingPage.js",
+      "to": "@/components/Landing_Page_partials/HeroHome",
+      "type": "import",
+      "isExternal": true
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/client/src/components/LandingPage.js",
+      "to": "@/utils/landing_page_developers",
+      "type": "import",
+      "isExternal": true
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/client/src/components/LandingPage.js",
+      "to": "react",
+      "type": "import",
+      "isExternal": true
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/client/src/components/Popup_Filter.js",
+      "to": "rc-slider",
+      "type": "import",
+      "isExternal": true
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/client/src/components/Popup_Filter.js",
+      "to": "rc-slider/assets/index.css",
+      "type": "import",
+      "isExternal": true
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/client/src/components/Popup_Filter.js",
+      "to": "react",
+      "type": "import",
+      "isExternal": true
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/client/src/components/Popup_Filter.js",
+      "to": "react-icons/gr",
+      "type": "import",
+      "isExternal": true
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/client/src/components/UserDropdown.js",
+      "to": "react",
+      "type": "import",
+      "isExternal": true
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/client/src/components/UserDropdown.js",
+      "to": "react-icons/fa",
+      "type": "import",
+      "isExternal": true
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/client/src/components/UserDropdown.js",
+      "to": "next/router",
+      "type": "import",
+      "isExternal": true
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/client/src/components/UserDropdown.js",
+      "to": "@/utils/removeUserToken",
+      "type": "import",
+      "isExternal": true
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/client/src/components/UserNavBar.js",
+      "to": "@/components/UserDropdown",
+      "type": "import",
+      "isExternal": true
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/client/src/components/UserNavBar.js",
+      "to": "@/utils/getUserToken",
+      "type": "import",
+      "isExternal": true
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/client/src/components/UserNavBar.js",
+      "to": "next/image",
+      "type": "import",
+      "isExternal": true
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/client/src/components/UserNavBar.js",
+      "to": "next/router",
+      "type": "import",
+      "isExternal": true
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/client/src/components/UserNavBar.js",
+      "to": "react",
+      "type": "import",
+      "isExternal": true
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/client/src/pages/index.js",
+      "to": "@/components/LandingPage",
+      "type": "import",
+      "isExternal": true
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/client/src/pages/index.js",
+      "to": "next/head",
+      "type": "import",
+      "isExternal": true
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/client/src/pages/index.js",
+      "to": "next/image",
+      "type": "import",
+      "isExternal": true
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/client/src/pages/_app.js",
+      "to": "@/styles/globals.css",
+      "type": "import",
+      "isExternal": true
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/client/src/pages/_app.js",
+      "to": "@/styles/Home.css",
+      "type": "import",
+      "isExternal": true
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/client/src/pages/_app.js",
+      "to": "next/head",
+      "type": "import",
+      "isExternal": true
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/client/src/pages/_document.js",
+      "to": "next/document",
+      "type": "import",
+      "isExternal": true
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/client/src/utils/getAdminToken.js",
+      "to": "universal-cookie",
+      "type": "import",
+      "isExternal": true
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/client/src/utils/getUserToken.js",
+      "to": "universal-cookie",
+      "type": "import",
+      "isExternal": true
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/client/src/utils/removeAdminToken.js",
+      "to": "universal-cookie",
+      "type": "import",
+      "isExternal": true
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/client/src/utils/removeUserToken.js",
+      "to": "universal-cookie",
+      "type": "import",
+      "isExternal": true
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/client/src/utils/setAdminToken.js",
+      "to": "universal-cookie",
+      "type": "import",
+      "isExternal": true
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1772893587460/client/src/utils/setUserToken.js",
+      "to": "universal-cookie",
+      "type": "import",
+      "isExternal": true
+    }
+  ]
+}
