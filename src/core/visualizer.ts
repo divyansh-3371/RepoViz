@@ -177,11 +177,6 @@ export function generateVisualization(
       background: #1a2741;
     }
     .btn:hover { border-color: var(--red); }
-    .btn[disabled] {
-      opacity: 0.5;
-      cursor: not-allowed;
-      border-color: var(--line);
-    }
     #searchInput { min-width: 220px; }
     .main {
       min-height: 0;
@@ -486,6 +481,7 @@ export function generateVisualization(
     let initialPositions = null;
     let mode = "main";
     let flowData = null;
+    let flowInitialPositions = null;
 
     function setFlowModeUI(isFlow) {
       const topBack = document.getElementById("backBtn");
@@ -498,7 +494,6 @@ export function generateVisualization(
         topBack.style.display = "inline-flex";
         topBack.style.visibility = "visible";
         topBack.style.opacity = "1";
-        topBack.disabled = !isFlow;
       }
       if (canvasBack) {
         canvasBack.classList.toggle("hidden", !isFlow);
@@ -688,6 +683,50 @@ export function generateVisualization(
         .sort((a, b) => (b.name?.length || 0) - (a.name?.length || 0))
         .slice(0, 5);
 
+      const uniq = (arr) => [...new Set(arr.filter(Boolean))];
+      const variables = uniq(
+        entities
+          .filter((e) => e.type === "variable")
+          .map((e) => e.name)
+      );
+      const functions = uniq(
+        entities
+          .filter((e) => e.type === "function")
+          .map((e) => e.name)
+      );
+      const methods = uniq(
+        entities
+          .filter((e) => e.type === "method")
+          .map((e) => e.name)
+      );
+      const classes = uniq(
+        entities
+          .filter((e) => e.type === "class")
+          .map((e) => e.name)
+      );
+      const calls = uniq(
+        entities
+          .filter((e) => e.type === "call")
+          .map((e) => e.name)
+      );
+      const libraries = uniq(
+        graphData.edges
+          .filter((edge) => edge.from === node.nodeId)
+          .filter((edge) => !graphData.nodes.some((n) => n.id === edge.to))
+          .map((edge) => edge.to)
+      );
+      const localDependencies = uniq(
+        graphData.edges
+          .filter((edge) => edge.from === node.nodeId)
+          .filter((edge) => graphData.nodes.some((n) => n.id === edge.to))
+          .map((edge) => shortName(edge.to))
+      );
+      const usedBy = uniq(
+        graphData.edges
+          .filter((edge) => edge.to === node.nodeId)
+          .map((edge) => shortName(edge.from))
+      );
+
       document.getElementById("summaryLine").textContent =
         "Flow view: " + shortName(node.nodeId) + " | " +
         entities.length + " flow nodes | " +
@@ -711,6 +750,41 @@ export function generateVisualization(
         '<h4 style="font-size:12px;margin:12px 0 6px;">Detailed Steps</h4>' +
         '<div class="list">' +
           longestLabel.map((e) => '<div class="list-item">' + e.name + '</div>').join("") +
+        "</div>" +
+        '<h4 style="font-size:12px;margin:12px 0 6px;">Variables</h4>' +
+        '<div class="list">' +
+          (variables.length
+            ? variables.map((name) => '<div class="list-item">' + name + '</div>').join("")
+            : '<div class="list-item">No variables detected.</div>') +
+        "</div>" +
+        '<h4 style="font-size:12px;margin:12px 0 6px;">Functions / Methods / Classes</h4>' +
+        '<div class="list">' +
+          (functions.length
+            ? '<div class="list-item"><strong>Functions:</strong> ' + functions.join(", ") + '</div>'
+            : '<div class="list-item"><strong>Functions:</strong> none</div>') +
+          (methods.length
+            ? '<div class="list-item"><strong>Methods:</strong> ' + methods.join(", ") + '</div>'
+            : '<div class="list-item"><strong>Methods:</strong> none</div>') +
+          (classes.length
+            ? '<div class="list-item"><strong>Classes:</strong> ' + classes.join(", ") + '</div>'
+            : '<div class="list-item"><strong>Classes:</strong> none</div>') +
+        "</div>" +
+        '<h4 style="font-size:12px;margin:12px 0 6px;">Function Calls Used</h4>' +
+        '<div class="list">' +
+          (calls.length
+            ? calls.map((name) => '<div class="list-item">' + name + '</div>').join("")
+            : '<div class="list-item">No call expressions detected.</div>') +
+        "</div>" +
+        '<h4 style="font-size:12px;margin:12px 0 6px;">Libraries Used (External)</h4>' +
+        '<div class="list">' +
+          (libraries.length
+            ? libraries.map((name) => '<div class="list-item">' + name + '</div>').join("")
+            : '<div class="list-item">No external libraries imported.</div>') +
+        "</div>" +
+        '<h4 style="font-size:12px;margin:12px 0 6px;">Dependencies Context</h4>' +
+        '<div class="list">' +
+          '<div class="list-item"><strong>Local dependencies:</strong> ' + (localDependencies.length ? localDependencies.join(", ") : "none") + '</div>' +
+          '<div class="list-item"><strong>Used by:</strong> ' + (usedBy.length ? usedBy.join(", ") : "none") + '</div>' +
         "</div>";
     }
 
@@ -1024,6 +1098,7 @@ export function generateVisualization(
           nodes: new vis.DataSet(flowNodes),
           edges: new vis.DataSet(flowEdges)
         };
+        flowInitialPositions = null;
 
         network.setData(flowData);
         network.setOptions({
@@ -1060,7 +1135,14 @@ export function generateVisualization(
         if (backBtn) backBtn.style.fontWeight = "700";
         setFlowModeUI(true);
         renderFlowMetrics(node, entities, baseFlowEdges);
-        setTimeout(() => network.fit({ animation: { duration: 300 } }), 120);
+        setTimeout(() => {
+          network.fit({ animation: { duration: 300 } });
+          setTimeout(() => {
+            flowInitialPositions = network.getPositions(
+              flowNodes.map((n) => n.id)
+            );
+          }, 220);
+        }, 120);
       } catch (error) {
         document.getElementById("codeMeta").textContent = "Flow graph error for " + node.nodeId;
         document.getElementById("codeView").textContent = String(error);
@@ -1068,9 +1150,9 @@ export function generateVisualization(
     }
 
     function goBackToMainGraph() {
-      if (mode !== "flow") return;
       mode = "main";
       flowData = null;
+      flowInitialPositions = null;
       network.setData({ nodes: mainNodesData, edges: mainEdgesData });
       network.setOptions({
         layout: { hierarchical: false },
@@ -1116,6 +1198,15 @@ export function generateVisualization(
 
     document.getElementById("resetBtn").addEventListener("click", () => {
       if (mode === "flow") {
+        if (flowData && flowInitialPositions) {
+          flowData.nodes.update(
+            Object.keys(flowInitialPositions).map((id) => ({
+              id: Number(id),
+              x: flowInitialPositions[id].x,
+              y: flowInitialPositions[id].y
+            }))
+          );
+        }
         network.fit({ animation: { duration: 250 } });
         return;
       }
