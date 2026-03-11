@@ -1,117 +1,90 @@
-import { Graph } from "./graphTypes"
-import fs from "fs"
-import path from "path"
-
-interface ViewNode {
-  id: number
-  nodeId: string
-  label: string
-  title: string
-  isExternal: boolean
-  fileType?: string
-  loc?: number
-  sizeBytes?: number
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.generateVisualization = generateVisualization;
+const fs_1 = __importDefault(require("fs"));
+const path_1 = __importDefault(require("path"));
+function jsonInline(value) {
+    return JSON.stringify(value).replace(/</g, "\\u003c");
 }
-
-interface ViewEdge {
-  id: string
-  from: number
-  to: number
-  label: string
+function baseName(value) {
+    const normalized = value.replace(/\\/g, "/");
+    const parts = normalized.split("/");
+    return parts[parts.length - 1] || value;
 }
-
-function jsonInline<T>(value: T): string {
-  return JSON.stringify(value).replace(/</g, "\\u003c")
-}
-
-function baseName(value: string): string {
-  const normalized = value.replace(/\\/g, "/")
-  const parts = normalized.split("/")
-  return parts[parts.length - 1] || value
-}
-
-function typeColor(fileType?: string): string {
-  switch (fileType) {
-    case "component":
-      return "#3b82f6"
-    case "service":
-      return "#facc15"
-    case "utility":
-      return "#22c55e"
-    case "config":
-      return "#8b5cf6"
-    case "hook":
-      return "#ec4899"
-    case "page":
-      return "#14b8a6"
-    default:
-      return "#94a3b8"
-  }
-}
-
-function buildViewData(graph: Graph): { nodes: ViewNode[]; edges: ViewEdge[] } {
-  const nodeIndex = new Map<string, number>()
-  const nodes: ViewNode[] = graph.nodes.map((node, index) => {
-    nodeIndex.set(node.id, index)
-    return {
-      id: index,
-      nodeId: node.id,
-      label: baseName(node.id),
-      title: node.id,
-      isExternal: false,
-      fileType: node.fileType,
-      loc: node.loc,
-      sizeBytes: node.sizeBytes
+function typeColor(fileType) {
+    switch (fileType) {
+        case "component":
+            return "#3b82f6";
+        case "service":
+            return "#facc15";
+        case "utility":
+            return "#22c55e";
+        case "config":
+            return "#8b5cf6";
+        case "hook":
+            return "#ec4899";
+        case "page":
+            return "#14b8a6";
+        default:
+            return "#94a3b8";
     }
-  })
-
-  const externals: string[] = []
-  for (const edge of graph.edges) {
-    if (!nodeIndex.has(edge.to) && !externals.includes(edge.to)) {
-      externals.push(edge.to)
-    }
-  }
-
-  externals.forEach((externalId, index) => {
-    const viewId = nodes.length + index
-    nodeIndex.set(externalId, viewId)
-    nodes.push({
-      id: viewId,
-      nodeId: externalId,
-      label: baseName(externalId),
-      title: externalId,
-      isExternal: true
-    })
-  })
-
-  const edges: ViewEdge[] = []
-  graph.edges.forEach((edge, index) => {
-    const from = nodeIndex.get(edge.from)
-    const to = nodeIndex.get(edge.to)
-    if (from === undefined || to === undefined) return
-
-    edges.push({
-      id: `edge-${index}-${from}-${to}`,
-      from,
-      to,
-      label: edge.type
-    })
-  })
-
-  return { nodes, edges }
 }
-
-export function generateVisualization(
-  graph: Graph,
-  outputPath: string,
-  serverPort = 3001
-): string {
-  const graphDir = path.dirname(outputPath)
-  const base = path.basename(outputPath, path.extname(outputPath))
-  const htmlPath = path.join(graphDir, `${base}-visualization.html`)
-  const viewData = buildViewData(graph)
-
-  const html = `<!DOCTYPE html>
+function buildViewData(graph) {
+    const nodeIndex = new Map();
+    const nodes = graph.nodes.map((node, index) => {
+        nodeIndex.set(node.id, index);
+        return {
+            id: index,
+            nodeId: node.id,
+            label: baseName(node.id),
+            title: node.id,
+            isExternal: false,
+            fileType: node.fileType,
+            loc: node.loc,
+            sizeBytes: node.sizeBytes
+        };
+    });
+    const externals = [];
+    for (const edge of graph.edges) {
+        if (!nodeIndex.has(edge.to) && !externals.includes(edge.to)) {
+            externals.push(edge.to);
+        }
+    }
+    externals.forEach((externalId, index) => {
+        const viewId = nodes.length + index;
+        nodeIndex.set(externalId, viewId);
+        nodes.push({
+            id: viewId,
+            nodeId: externalId,
+            label: baseName(externalId),
+            title: externalId,
+            isExternal: true
+        });
+    });
+    const edges = [];
+    graph.edges.forEach((edge, index) => {
+        const from = nodeIndex.get(edge.from);
+        const to = nodeIndex.get(edge.to);
+        if (from === undefined || to === undefined)
+            return;
+        edges.push({
+            id: `edge-${index}-${from}-${to}`,
+            from,
+            to,
+            label: edge.type
+        });
+    });
+    return { nodes, edges };
+}
+function generateVisualization(graph, outputPath, serverPort = 3001) {
+    const graphDir = path_1.default.dirname(outputPath);
+    const base = path_1.default.basename(outputPath, path_1.default.extname(outputPath));
+    const htmlPath = path_1.default.join(graphDir, `${base}-visualization.html`);
+    const viewData = buildViewData(graph);
+    const html = `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -1541,9 +1514,8 @@ export function generateVisualization(
     renderRepoMetrics();
   </script>
 </body>
-</html>`
-
-  fs.writeFileSync(htmlPath, html)
-  console.log(`\nVisualization saved to: ${htmlPath}`)
-  return htmlPath
+</html>`;
+    fs_1.default.writeFileSync(htmlPath, html);
+    console.log(`\nVisualization saved to: ${htmlPath}`);
+    return htmlPath;
 }

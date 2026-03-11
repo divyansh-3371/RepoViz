@@ -12,12 +12,17 @@ export async function isGitHubUrl(input: string): Promise<boolean> {
 }
 
 export async function cloneGitHubRepo(
-  url: string
+  url: string,
+  onTempDirCreated?: (dir: string) => void
 ): Promise<{ tempDir: string; cleanup: () => void }> {
   const tempDir = path.join(
     os.tmpdir(),
     `repo-visualizer-${Date.now()}`
   )
+
+  if (onTempDirCreated) {
+    onTempDirCreated(tempDir)
+  }
 
   console.log(`Cloning repository from ${url}...`)
 
@@ -40,14 +45,17 @@ export async function cloneGitHubRepo(
   return { tempDir, cleanup }
 }
 
-export async function getRepoPath(input: string): Promise<{
+export async function getRepoPath(
+  input: string,
+  onTempDirCreated?: (dir: string) => void
+): Promise<{
   repoPath: string
   cleanup?: () => void
 }> {
   const isGithub = await isGitHubUrl(input)
 
   if (isGithub) {
-    const { tempDir, cleanup } = await cloneGitHubRepo(input)
+    const { tempDir, cleanup } = await cloneGitHubRepo(input, onTempDirCreated)
     return { repoPath: tempDir, cleanup }
   }
 

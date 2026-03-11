@@ -1,35 +1,37 @@
-import express, { Request, Response } from "express"
-import cors from "cors"
-import http from "http"
-import fs from "fs"
-import path from "path"
-import os from "os"
-import { analyzeFileStructure } from "../parsers/codeAnalyzer"
-import { scanRepository } from "../core/fileScanner"
-import { detectExtensions } from "../core/languageDetector"
-import { buildGraph } from "../core/graphBuilder"
-import { getRepoPath } from "../core/githubHandler"
-import { generateVisualization } from "../core/visualizer"
-
-const app = express()
-let PORT = 3001
-const MAX_SOURCE_BYTES = 1024 * 1024
-let currentVisualizationHtml: string | null = null
-let currentRepoCleanup: (() => void) | null = null
-
-app.use(cors())
-app.use(express.json())
-
-function safeReadSource(filePath: string): string {
-  const fileStat = fs.statSync(filePath)
-  if (fileStat.size > MAX_SOURCE_BYTES) {
-    throw new Error("File is too large to preview")
-  }
-  return fs.readFileSync(filePath, "utf8")
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.startAnalysisServer = startAnalysisServer;
+const express_1 = __importDefault(require("express"));
+const cors_1 = __importDefault(require("cors"));
+const http_1 = __importDefault(require("http"));
+const fs_1 = __importDefault(require("fs"));
+const path_1 = __importDefault(require("path"));
+const os_1 = __importDefault(require("os"));
+const codeAnalyzer_1 = require("../parsers/codeAnalyzer");
+const fileScanner_1 = require("../core/fileScanner");
+const languageDetector_1 = require("../core/languageDetector");
+const graphBuilder_1 = require("../core/graphBuilder");
+const githubHandler_1 = require("../core/githubHandler");
+const visualizer_1 = require("../core/visualizer");
+const app = (0, express_1.default)();
+let PORT = 3001;
+const MAX_SOURCE_BYTES = 1024 * 1024;
+let currentVisualizationHtml = null;
+let currentRepoCleanup = null;
+app.use((0, cors_1.default)());
+app.use(express_1.default.json());
+function safeReadSource(filePath) {
+    const fileStat = fs_1.default.statSync(filePath);
+    if (fileStat.size > MAX_SOURCE_BYTES) {
+        throw new Error("File is too large to preview");
+    }
+    return fs_1.default.readFileSync(filePath, "utf8");
 }
-
-function landingPage(): string {
-  return `<!DOCTYPE html>
+function landingPage() {
+    return `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -252,130 +254,117 @@ function landingPage(): string {
 </body>
 </html>`;
 }
-
-async function buildVisualization(input: string): Promise<string> {
-  if (currentRepoCleanup) {
-    currentRepoCleanup();
-    currentRepoCleanup = null;
-  }
-
-  const result = await getRepoPath(input);
-  currentRepoCleanup = result.cleanup || null;
-
-  const files = await scanRepository(result.repoPath);
-  detectExtensions(files);
-  const graph = buildGraph(files);
-
-  const outputDir = fs.mkdtempSync(path.join(os.tmpdir(), "repo-visualizer-output-"));
-  const outputPath = path.join(outputDir, "graph.json");
-  fs.writeFileSync(outputPath, JSON.stringify(graph, null, 2));
-  const htmlPath = generateVisualization(graph, outputPath, PORT);
-  return fs.readFileSync(htmlPath, "utf8");
+async function buildVisualization(input) {
+    if (currentRepoCleanup) {
+        currentRepoCleanup();
+        currentRepoCleanup = null;
+    }
+    const result = await (0, githubHandler_1.getRepoPath)(input);
+    currentRepoCleanup = result.cleanup || null;
+    const files = await (0, fileScanner_1.scanRepository)(result.repoPath);
+    (0, languageDetector_1.detectExtensions)(files);
+    const graph = (0, graphBuilder_1.buildGraph)(files);
+    const outputDir = fs_1.default.mkdtempSync(path_1.default.join(os_1.default.tmpdir(), "repo-visualizer-output-"));
+    const outputPath = path_1.default.join(outputDir, "graph.json");
+    fs_1.default.writeFileSync(outputPath, JSON.stringify(graph, null, 2));
+    const htmlPath = (0, visualizer_1.generateVisualization)(graph, outputPath, PORT);
+    return fs_1.default.readFileSync(htmlPath, "utf8");
 }
-
-app.get("/", (_req: Request, res: Response) => {
-  res.status(200).send(landingPage());
+app.get("/", (_req, res) => {
+    res.status(200).send(landingPage());
 });
-
-app.get("/visualization", (_req: Request, res: Response) => {
-  if (!currentVisualizationHtml) {
-    return res.status(404).send("No visualization generated yet.");
-  }
-  res.setHeader("Content-Type", "text/html");
-  res.status(200).send(currentVisualizationHtml);
+app.get("/visualization", (_req, res) => {
+    if (!currentVisualizationHtml) {
+        return res.status(404).send("No visualization generated yet.");
+    }
+    res.setHeader("Content-Type", "text/html");
+    res.status(200).send(currentVisualizationHtml);
 });
-
-app.post("/api/visualize", async (req: Request, res: Response) => {
-  const input = String(req.body?.input || "").trim();
-  if (!input) {
-    return res.status(400).json({ error: "input is required" });
-  }
-
-  try {
-    currentVisualizationHtml = await buildVisualization(input);
-    return res.json({ ok: true, url: "/visualization" });
-  } catch (error) {
-    console.error("Visualization error:", error);
-    return res.status(500).json({
-      error: "Failed to build visualization",
-      message: error instanceof Error ? error.message : "Unknown error"
+app.post("/api/visualize", async (req, res) => {
+    const input = String(req.body?.input || "").trim();
+    if (!input) {
+        return res.status(400).json({ error: "input is required" });
+    }
+    try {
+        currentVisualizationHtml = await buildVisualization(input);
+        return res.json({ ok: true, url: "/visualization" });
+    }
+    catch (error) {
+        console.error("Visualization error:", error);
+        return res.status(500).json({
+            error: "Failed to build visualization",
+            message: error instanceof Error ? error.message : "Unknown error"
+        });
+    }
+});
+app.get("/api/analyze", (req, res) => {
+    const filePath = req.query.file;
+    if (!filePath) {
+        return res.status(400).json({ error: "file parameter is required" });
+    }
+    try {
+        const structure = (0, codeAnalyzer_1.analyzeFileStructure)(filePath);
+        return res.json(structure);
+    }
+    catch (error) {
+        console.error("Error analyzing file:", error);
+        return res.status(500).json({
+            error: "Failed to analyze file",
+            message: error instanceof Error ? error.message : "Unknown error"
+        });
+    }
+});
+app.get("/api/source", (req, res) => {
+    const filePath = req.query.file;
+    if (!filePath) {
+        return res.status(400).json({ error: "file parameter is required" });
+    }
+    try {
+        const content = safeReadSource(filePath);
+        return res.json({ filePath, content });
+    }
+    catch (error) {
+        return res.status(500).json({
+            error: "Failed to read source file",
+            message: error instanceof Error ? error.message : "Unknown error"
+        });
+    }
+});
+app.get("/health", (req, res) => {
+    res.json({ status: "ok" });
+});
+function findAvailablePort(startPort) {
+    return new Promise((resolve, reject) => {
+        const server = http_1.default.createServer(app);
+        server.listen(startPort, () => {
+            const addressInfo = server.address();
+            if (addressInfo && typeof addressInfo !== "string") {
+                const port = addressInfo.port;
+                server.close();
+                resolve(port);
+            }
+            else {
+                reject(new Error("Could not determine port"));
+            }
+        });
+        server.on("error", (err) => {
+            if (err.code === "EADDRINUSE") {
+                resolve(findAvailablePort(startPort + 1));
+            }
+            else {
+                reject(err);
+            }
+        });
     });
-  }
-});
-
-app.get("/api/analyze", (req: Request, res: Response) => {
-  const filePath = req.query.file as string
-  if (!filePath) {
-    return res.status(400).json({ error: "file parameter is required" })
-  }
-
-  try {
-    const structure = analyzeFileStructure(filePath)
-    return res.json(structure)
-  } catch (error) {
-    console.error("Error analyzing file:", error)
-    return res.status(500).json({
-      error: "Failed to analyze file",
-      message: error instanceof Error ? error.message : "Unknown error"
-    })
-  }
-})
-
-app.get("/api/source", (req: Request, res: Response) => {
-  const filePath = req.query.file as string
-  if (!filePath) {
-    return res.status(400).json({ error: "file parameter is required" })
-  }
-
-  try {
-    const content = safeReadSource(filePath)
-    return res.json({ filePath, content })
-  } catch (error) {
-    return res.status(500).json({
-      error: "Failed to read source file",
-      message: error instanceof Error ? error.message : "Unknown error"
-    })
-  }
-})
-
-app.get("/health", (req: Request, res: Response) => {
-  res.json({ status: "ok" })
-})
-
-function findAvailablePort(startPort: number): Promise<number> {
-  return new Promise((resolve, reject) => {
-    const server = http.createServer(app)
-    server.listen(startPort, () => {
-      const addressInfo = server.address()
-      if (addressInfo && typeof addressInfo !== "string") {
-        const port = addressInfo.port
-        server.close()
-        resolve(port)
-      } else {
-        reject(new Error("Could not determine port"))
-      }
-    })
-    server.on("error", (err: NodeJS.ErrnoException) => {
-      if (err.code === "EADDRINUSE") {
-        resolve(findAvailablePort(startPort + 1))
-      } else {
-        reject(err)
-      }
-    })
-  })
 }
-
-export async function startAnalysisServer(): Promise<number> {
-  const availablePort = await findAvailablePort(PORT)
-  PORT = availablePort
-
-  return new Promise((resolve) => {
-    app.listen(PORT, () => {
-      console.log(`\nAnalysis server running at http://localhost:${PORT}`)
-      console.log(
-        `   API endpoint: http://localhost:${PORT}/api/analyze?file=<filepath>`
-      )
-      resolve(PORT)
-    })
-  })
+async function startAnalysisServer() {
+    const availablePort = await findAvailablePort(PORT);
+    PORT = availablePort;
+    return new Promise((resolve) => {
+        app.listen(PORT, () => {
+            console.log(`\nAnalysis server running at http://localhost:${PORT}`);
+            console.log(`   API endpoint: http://localhost:${PORT}/api/analyze?file=<filepath>`);
+            resolve(PORT);
+        });
+    });
 }
