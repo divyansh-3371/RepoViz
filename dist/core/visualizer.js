@@ -688,17 +688,32 @@ function generateVisualization(graph, outputPath, serverPort = 3001) {
 
     function bindMainNetworkEvents() {
       if (!network) return;
+      let clickTimeout = null;
+
       network.on("click", async (params) => {
         if (!params.nodes.length || mode !== "main") return;
         const node = viewIdToNode.get(params.nodes[0]);
         if (!node) return;
 
-        highlightPathRed(node.nodeId);
-        showNodeOverview(node);
+        if (clickTimeout !== null) {
+          clearTimeout(clickTimeout);
+        }
+
+        clickTimeout = setTimeout(() => {
+          highlightPathRed(node.nodeId);
+          showNodeOverview(node);
+          clickTimeout = null;
+        }, 250);
       });
 
       network.on("doubleClick", async (params) => {
         if (!params.nodes.length || mode !== "main") return;
+        
+        if (clickTimeout !== null) {
+          clearTimeout(clickTimeout);
+          clickTimeout = null;
+        }
+
         const node = viewIdToNode.get(params.nodes[0]);
         if (!node || node.isExternal) return;
         await loadSource(node);

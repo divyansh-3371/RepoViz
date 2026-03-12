@@ -630,6 +630,22 @@ export function generateVisualization(
       if (searchInput) searchInput.disabled = isFlow;
     }
 
+    function revealSourcePanel() {
+      const controlDrawer = document.getElementById("controlDrawer");
+      const controlsToggle = document.getElementById("controlsToggle");
+      if (controlDrawer && !controlDrawer.classList.contains("open")) {
+        controlDrawer.classList.add("open");
+        if (controlsToggle) controlsToggle.textContent = "Close Controls";
+      }
+
+      const codePanel = document.getElementById("codePanel");
+      const collapseCodeBtn = document.getElementById("collapseCodeBtn");
+      if (codePanel && codePanel.classList.contains("collapsed")) {
+        codePanel.classList.remove("collapsed");
+        if (collapseCodeBtn) collapseCodeBtn.textContent = "Collapse";
+      }
+    }
+
     function positionsAreValid(positions) {
       if (!positions) return false;
       const keys = Object.keys(positions);
@@ -715,17 +731,32 @@ export function generateVisualization(
 
     function bindMainNetworkEvents() {
       if (!network) return;
+      let clickTimeout = null;
+
       network.on("click", async (params) => {
         if (!params.nodes.length || mode !== "main") return;
         const node = viewIdToNode.get(params.nodes[0]);
         if (!node) return;
 
-        highlightPathRed(node.nodeId);
-        showNodeOverview(node);
+        if (clickTimeout !== null) {
+          clearTimeout(clickTimeout);
+        }
+
+        clickTimeout = setTimeout(() => {
+          highlightPathRed(node.nodeId);
+          showNodeOverview(node);
+          clickTimeout = null;
+        }, 250);
       });
 
       network.on("doubleClick", async (params) => {
         if (!params.nodes.length || mode !== "main") return;
+        
+        if (clickTimeout !== null) {
+          clearTimeout(clickTimeout);
+          clickTimeout = null;
+        }
+
         const node = viewIdToNode.get(params.nodes[0]);
         if (!node || node.isExternal) return;
         await loadSource(node);
@@ -1225,7 +1256,7 @@ export function generateVisualization(
           edgeSeen.add(key);
           return true;
         });
-        const flowEdges = [...baseFlowEdges];
+        let flowEdges = [...baseFlowEdges];
 
         if (!flowNodes.length) {
           flowNodes.push({
@@ -1328,8 +1359,12 @@ export function generateVisualization(
           const level = levelMap.has(n.id) ? levelMap.get(n.id) : 1;
           n.level = Number.isFinite(level) ? level : 1;
         });
-        const hasInvalidLevel = flowNodes.some((n) => !Number.isFinite(n.level));
-        if (hasInvalidLevel) {
+        const allLevelsDefined = flowNodes.every((n) => Number.isFinite(n.level));
+        flowNodes.forEach((n) => {
+          n.level = Number.isFinite(n.level) ? Math.max(0, Math.round(n.level)) : 1;
+        });
+        let useHierarchical = allLevelsDefined && flowNodes.length > 0;
+        if (!useHierarchical) {
           flowNodes.forEach((n) => {
             delete n.level;
           });
@@ -1342,10 +1377,10 @@ export function generateVisualization(
         flowInitialPositions = null;
 
         network.setData(flowData);
-        network.setOptions({
+        const flowOptions = {
           layout: {
             hierarchical: {
-              enabled: true,
+              enabled: useHierarchical,
               direction: "UD",
               sortMethod: "directed",
               nodeSpacing: 170,
@@ -1370,7 +1405,26 @@ export function generateVisualization(
             },
             color: { inherit: false }
           }
-        });
+        };
+
+        try {
+          network.setOptions(flowOptions);
+        } catch (error) {
+          const message = String(error || "");
+          if (message.includes("hierarchical") || message.includes("levels")) {
+            flowNodes.forEach((n) => {
+              delete n.level;
+            });
+            flowOptions.layout.hierarchical.enabled = false;
+            network.setData({
+              nodes: new vis.DataSet(flowNodes),
+              edges: new vis.DataSet(flowEdges)
+            });
+            network.setOptions(flowOptions);
+          } else {
+            throw error;
+          }
+        }
         mode = "flow";
         titleText.textContent = "File Flow Graph: " + shortName(node.nodeId);
         if (backBtn) backBtn.style.fontWeight = "700";
@@ -1541,7 +1595,7 @@ export function generateVisualization(
     renderRepoMetrics();
   </script>
 </body>
-</html>`
+</html>`;
 
   fs.writeFileSync(htmlPath, html)
   console.log(`\nVisualization saved to: ${htmlPath}`)

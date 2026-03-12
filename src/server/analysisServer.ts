@@ -17,6 +17,54 @@ const MAX_SOURCE_BYTES = 1024 * 1024
 let currentVisualizationHtml: string | null = null
 let currentRepoCleanup: (() => void) | null = null
 
+// Track directories that need to be cleaned up
+const tempDirsToClean: string[] = []
+const runCleanup = () => {
+  while (tempDirsToClean.length > 0) {
+    const dir = tempDirsToClean.pop()
+    if (dir) {
+      try {
+        if (fs.existsSync(dir)) {
+          fs.rmSync(dir, { recursive: true, force: true })
+          console.log(`Cleaned up temporary directory: ${dir}`)
+        }
+      } catch (error) {
+        console.error(`Failed to clean up directory ${dir}:`, error instanceof Error ? error.message : error)
+      }
+    }
+  }
+
+  if (currentRepoCleanup) {
+    try {
+      currentRepoCleanup()
+    } catch (error) {
+      console.error("Cleanup failed:", error instanceof Error ? error.message : error)
+    }
+    currentRepoCleanup = null
+  }
+}
+
+const handleSignal = (signal: NodeJS.Signals) => {
+  console.log(`\nReceived ${signal}. Cleaning up...`)
+  runCleanup()
+  process.exit(0)
+}
+
+process.on("exit", runCleanup)
+process.on("SIGINT", () => handleSignal("SIGINT"))
+process.on("SIGTERM", () => handleSignal("SIGTERM"))
+process.on("SIGHUP", () => handleSignal("SIGHUP"))
+process.on("uncaughtException", (error) => {
+  console.error("Uncaught exception:", error)
+  runCleanup()
+  process.exit(1)
+})
+process.on("unhandledRejection", (reason) => {
+  console.error("Unhandled rejection:", reason)
+  runCleanup()
+  process.exit(1)
+})
+
 app.use(cors())
 app.use(express.json())
 
@@ -259,7 +307,9 @@ async function buildVisualization(input: string): Promise<string> {
     currentRepoCleanup = null;
   }
 
-  const result = await getRepoPath(input);
+  const result = await getRepoPath(input, (dir) => {
+    tempDirsToClean.push(dir)
+  });
   currentRepoCleanup = result.cleanup || null;
 
   const files = await scanRepository(result.repoPath);
@@ -267,6 +317,8 @@ async function buildVisualization(input: string): Promise<string> {
   const graph = buildGraph(files);
 
   const outputDir = fs.mkdtempSync(path.join(os.tmpdir(), "repo-visualizer-output-"));
+  // Record output directories to be cleaned up
+  tempDirsToClean.push(outputDir)
   const outputPath = path.join(outputDir, "graph.json");
   fs.writeFileSync(outputPath, JSON.stringify(graph, null, 2));
   const htmlPath = generateVisualization(graph, outputPath, PORT);
@@ -283,6 +335,11 @@ app.get("/visualization", (_req: Request, res: Response) => {
   }
   res.setHeader("Content-Type", "text/html");
   res.status(200).send(currentVisualizationHtml);
+});
+
+app.post("/api/cleanup", (_req: Request, res: Response) => {
+  runCleanup();
+  res.json({ ok: true });
 });
 
 app.post("/api/visualize", async (req: Request, res: Response) => {

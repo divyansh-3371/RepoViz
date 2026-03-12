@@ -21,6 +21,52 @@ let PORT = 3001;
 const MAX_SOURCE_BYTES = 1024 * 1024;
 let currentVisualizationHtml = null;
 let currentRepoCleanup = null;
+// Track directories that need to be cleaned up
+const tempDirsToClean = [];
+const runCleanup = () => {
+    while (tempDirsToClean.length > 0) {
+        const dir = tempDirsToClean.pop();
+        if (dir) {
+            try {
+                if (fs_1.default.existsSync(dir)) {
+                    fs_1.default.rmSync(dir, { recursive: true, force: true });
+                    console.log(`Cleaned up temporary directory: ${dir}`);
+                }
+            }
+            catch (error) {
+                console.error(`Failed to clean up directory ${dir}:`, error instanceof Error ? error.message : error);
+            }
+        }
+    }
+    if (currentRepoCleanup) {
+        try {
+            currentRepoCleanup();
+        }
+        catch (error) {
+            console.error("Cleanup failed:", error instanceof Error ? error.message : error);
+        }
+        currentRepoCleanup = null;
+    }
+};
+const handleSignal = (signal) => {
+    console.log(`\nReceived ${signal}. Cleaning up...`);
+    runCleanup();
+    process.exit(0);
+};
+process.on("exit", runCleanup);
+process.on("SIGINT", () => handleSignal("SIGINT"));
+process.on("SIGTERM", () => handleSignal("SIGTERM"));
+process.on("SIGHUP", () => handleSignal("SIGHUP"));
+process.on("uncaughtException", (error) => {
+    console.error("Uncaught exception:", error);
+    runCleanup();
+    process.exit(1);
+});
+process.on("unhandledRejection", (reason) => {
+    console.error("Unhandled rejection:", reason);
+    runCleanup();
+    process.exit(1);
+});
 app.use((0, cors_1.default)());
 app.use(express_1.default.json());
 function safeReadSource(filePath) {
@@ -259,12 +305,16 @@ async function buildVisualization(input) {
         currentRepoCleanup();
         currentRepoCleanup = null;
     }
-    const result = await (0, githubHandler_1.getRepoPath)(input);
+    const result = await (0, githubHandler_1.getRepoPath)(input, (dir) => {
+        tempDirsToClean.push(dir);
+    });
     currentRepoCleanup = result.cleanup || null;
     const files = await (0, fileScanner_1.scanRepository)(result.repoPath);
     (0, languageDetector_1.detectExtensions)(files);
     const graph = (0, graphBuilder_1.buildGraph)(files);
     const outputDir = fs_1.default.mkdtempSync(path_1.default.join(os_1.default.tmpdir(), "repo-visualizer-output-"));
+    // Record output directories to be cleaned up
+    tempDirsToClean.push(outputDir);
     const outputPath = path_1.default.join(outputDir, "graph.json");
     fs_1.default.writeFileSync(outputPath, JSON.stringify(graph, null, 2));
     const htmlPath = (0, visualizer_1.generateVisualization)(graph, outputPath, PORT);
@@ -279,6 +329,10 @@ app.get("/visualization", (_req, res) => {
     }
     res.setHeader("Content-Type", "text/html");
     res.status(200).send(currentVisualizationHtml);
+});
+app.post("/api/cleanup", (_req, res) => {
+    runCleanup();
+    res.json({ ok: true });
 });
 app.post("/api/visualize", async (req, res) => {
     const input = String(req.body?.input || "").trim();
