@@ -1,7 +1,7 @@
 {
   "nodes": [
     {
-      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/webpack.config.js",
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/webpack.config.js",
       "type": "file",
       "extension": ".js",
       "loc": 133,
@@ -9,7 +9,7 @@
       "fileType": "config"
     },
     {
-      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/extension.ts",
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/extension.ts",
       "type": "file",
       "extension": ".ts",
       "loc": 244,
@@ -17,15 +17,7 @@
       "fileType": "other"
     },
     {
-      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/ir/ir.ts",
-      "type": "file",
-      "extension": ".ts",
-      "loc": 77,
-      "sizeBytes": 1799,
-      "fileType": "other"
-    },
-    {
-      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/analyzer.ts",
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/analyzer.ts",
       "type": "file",
       "extension": ".ts",
       "loc": 45,
@@ -33,7 +25,7 @@
       "fileType": "other"
     },
     {
-      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/EnhancedMermaidGenerator.ts",
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/EnhancedMermaidGenerator.ts",
       "type": "file",
       "extension": ".ts",
       "loc": 316,
@@ -41,7 +33,7 @@
       "fileType": "other"
     },
     {
-      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/MermaidGenerator.ts",
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/MermaidGenerator.ts",
       "type": "file",
       "extension": ".ts",
       "loc": 99,
@@ -49,7 +41,15 @@
       "fileType": "other"
     },
     {
-      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/types/tree-sitter-c.d.ts",
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/ir/ir.ts",
+      "type": "file",
+      "extension": ".ts",
+      "loc": 77,
+      "sizeBytes": 1799,
+      "fileType": "other"
+    },
+    {
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/types/tree-sitter-c.d.ts",
       "type": "file",
       "extension": ".ts",
       "loc": 6,
@@ -57,7 +57,7 @@
       "fileType": "other"
     },
     {
-      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/types/tree-sitter-cpp.d.ts",
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/types/tree-sitter-cpp.d.ts",
       "type": "file",
       "extension": ".ts",
       "loc": 6,
@@ -65,7 +65,7 @@
       "fileType": "other"
     },
     {
-      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/types/tree-sitter-rust.d.ts",
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/types/tree-sitter-rust.d.ts",
       "type": "file",
       "extension": ".ts",
       "loc": 5,
@@ -73,7 +73,7 @@
       "fileType": "other"
     },
     {
-      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/types/web-tree-sitter.d.ts",
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/types/web-tree-sitter.d.ts",
       "type": "file",
       "extension": ".ts",
       "loc": 167,
@@ -81,7 +81,7 @@
       "fileType": "other"
     },
     {
-      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/view/BaseFlowchartProvider.ts",
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/view/BaseFlowchartProvider.ts",
       "type": "file",
       "extension": ".ts",
       "loc": 1569,
@@ -89,7 +89,7 @@
       "fileType": "other"
     },
     {
-      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/view/CodebaseFlowProvider.ts",
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/view/CodebaseFlowProvider.ts",
       "type": "file",
       "extension": ".ts",
       "loc": 506,
@@ -97,7 +97,7 @@
       "fileType": "other"
     },
     {
-      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/view/FlowchartPanelProvider.ts",
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/view/FlowchartPanelProvider.ts",
       "type": "file",
       "extension": ".ts",
       "loc": 225,
@@ -105,7 +105,7 @@
       "fileType": "other"
     },
     {
-      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/view/FlowchartViewProvider.ts",
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/view/FlowchartViewProvider.ts",
       "type": "file",
       "extension": ".ts",
       "loc": 92,
@@ -113,7 +113,7 @@
       "fileType": "other"
     },
     {
-      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/common/AbstractParser.ts",
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/common/AbstractParser.ts",
       "type": "file",
       "extension": ".ts",
       "loc": 732,
@@ -121,7 +121,7 @@
       "fileType": "other"
     },
     {
-      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/common/AstParserTypes.ts",
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/common/AstParserTypes.ts",
       "type": "file",
       "extension": ".ts",
       "loc": 15,
@@ -129,7 +129,7 @@
       "fileType": "other"
     },
     {
-      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/dependency/CodebaseAnalyzer.ts",
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/dependency/CodebaseAnalyzer.ts",
       "type": "file",
       "extension": ".ts",
       "loc": 388,
@@ -137,7 +137,7 @@
       "fileType": "other"
     },
     {
-      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/dependency/CodebaseGraphBuilder.ts",
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/dependency/CodebaseGraphBuilder.ts",
       "type": "file",
       "extension": ".ts",
       "loc": 21,
@@ -145,7 +145,7 @@
       "fileType": "other"
     },
     {
-      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/dependency/CodebaseMermaidGenerator.ts",
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/dependency/CodebaseMermaidGenerator.ts",
       "type": "file",
       "extension": ".ts",
       "loc": 256,
@@ -153,7 +153,7 @@
       "fileType": "other"
     },
     {
-      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/dependency/FileTypeClassifier.ts",
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/dependency/FileTypeClassifier.ts",
       "type": "file",
       "extension": ".ts",
       "loc": 206,
@@ -161,7 +161,7 @@
       "fileType": "other"
     },
     {
-      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/dependency/index.ts",
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/dependency/index.ts",
       "type": "file",
       "extension": ".ts",
       "loc": 6,
@@ -169,47 +169,7 @@
       "fileType": "other"
     },
     {
-      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/llm/CacheManager.ts",
-      "type": "file",
-      "extension": ".ts",
-      "loc": 81,
-      "sizeBytes": 2183,
-      "fileType": "other"
-    },
-    {
-      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/llm/LLMContext.ts",
-      "type": "file",
-      "extension": ".ts",
-      "loc": 14,
-      "sizeBytes": 282,
-      "fileType": "other"
-    },
-    {
-      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/llm/LLMLogger.ts",
-      "type": "file",
-      "extension": ".ts",
-      "loc": 28,
-      "sizeBytes": 588,
-      "fileType": "other"
-    },
-    {
-      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/llm/LLMManager.ts",
-      "type": "file",
-      "extension": ".ts",
-      "loc": 346,
-      "sizeBytes": 11985,
-      "fileType": "other"
-    },
-    {
-      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/llm/LLMService.ts",
-      "type": "file",
-      "extension": ".ts",
-      "loc": 969,
-      "sizeBytes": 30315,
-      "fileType": "service"
-    },
-    {
-      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/index.ts",
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/index.ts",
       "type": "file",
       "extension": ".ts",
       "loc": 141,
@@ -217,7 +177,47 @@
       "fileType": "other"
     },
     {
-      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/utils/EnvironmentDetector.ts",
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/llm/CacheManager.ts",
+      "type": "file",
+      "extension": ".ts",
+      "loc": 81,
+      "sizeBytes": 2183,
+      "fileType": "other"
+    },
+    {
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/llm/LLMContext.ts",
+      "type": "file",
+      "extension": ".ts",
+      "loc": 14,
+      "sizeBytes": 282,
+      "fileType": "other"
+    },
+    {
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/llm/LLMLogger.ts",
+      "type": "file",
+      "extension": ".ts",
+      "loc": 28,
+      "sizeBytes": 588,
+      "fileType": "other"
+    },
+    {
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/llm/LLMManager.ts",
+      "type": "file",
+      "extension": ".ts",
+      "loc": 346,
+      "sizeBytes": 11985,
+      "fileType": "other"
+    },
+    {
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/llm/LLMService.ts",
+      "type": "file",
+      "extension": ".ts",
+      "loc": 969,
+      "sizeBytes": 30315,
+      "fileType": "service"
+    },
+    {
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/utils/EnvironmentDetector.ts",
       "type": "file",
       "extension": ".ts",
       "loc": 146,
@@ -225,7 +225,7 @@
       "fileType": "utility"
     },
     {
-      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/utils/MetricsAnalyzer.ts",
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/utils/MetricsAnalyzer.ts",
       "type": "file",
       "extension": ".ts",
       "loc": 123,
@@ -233,7 +233,7 @@
       "fileType": "utility"
     },
     {
-      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/utils/StringProcessor.ts",
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/utils/StringProcessor.ts",
       "type": "file",
       "extension": ".ts",
       "loc": 73,
@@ -241,7 +241,7 @@
       "fileType": "utility"
     },
     {
-      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/utils/ThemeManager.ts",
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/utils/ThemeManager.ts",
       "type": "file",
       "extension": ".ts",
       "loc": 914,
@@ -249,7 +249,7 @@
       "fileType": "utility"
     },
     {
-      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/c/CAstParser.ts",
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/c/CAstParser.ts",
       "type": "file",
       "extension": ".ts",
       "loc": 1015,
@@ -257,7 +257,7 @@
       "fileType": "other"
     },
     {
-      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/c/index.ts",
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/c/index.ts",
       "type": "file",
       "extension": ".ts",
       "loc": 52,
@@ -265,7 +265,7 @@
       "fileType": "other"
     },
     {
-      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/common/ParserInit.ts",
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/common/ParserInit.ts",
       "type": "file",
       "extension": ".ts",
       "loc": 26,
@@ -273,39 +273,7 @@
       "fileType": "other"
     },
     {
-      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/java/index.ts",
-      "type": "file",
-      "extension": ".ts",
-      "loc": 29,
-      "sizeBytes": 768,
-      "fileType": "other"
-    },
-    {
-      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/java/JavaAstParser.ts",
-      "type": "file",
-      "extension": ".ts",
-      "loc": 1559,
-      "sizeBytes": 46945,
-      "fileType": "other"
-    },
-    {
-      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/cpp/CppAstParser.ts",
-      "type": "file",
-      "extension": ".ts",
-      "loc": 1652,
-      "sizeBytes": 50932,
-      "fileType": "other"
-    },
-    {
-      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/cpp/index.ts",
-      "type": "file",
-      "extension": ".ts",
-      "loc": 52,
-      "sizeBytes": 1396,
-      "fileType": "other"
-    },
-    {
-      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/go/GoAstParser.ts",
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/go/GoAstParser.ts",
       "type": "file",
       "extension": ".ts",
       "loc": 623,
@@ -313,7 +281,7 @@
       "fileType": "other"
     },
     {
-      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/go/index.ts",
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/go/index.ts",
       "type": "file",
       "extension": ".ts",
       "loc": 41,
@@ -321,23 +289,23 @@
       "fileType": "other"
     },
     {
-      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/python/index.ts",
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/java/index.ts",
       "type": "file",
       "extension": ".ts",
-      "loc": 27,
-      "sizeBytes": 743,
+      "loc": 29,
+      "sizeBytes": 768,
       "fileType": "other"
     },
     {
-      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/python/PyAstParser.ts",
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/java/JavaAstParser.ts",
       "type": "file",
       "extension": ".ts",
-      "loc": 1822,
-      "sizeBytes": 55386,
+      "loc": 1559,
+      "sizeBytes": 46945,
       "fileType": "other"
     },
     {
-      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/rust/index.ts",
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/rust/index.ts",
       "type": "file",
       "extension": ".ts",
       "loc": 52,
@@ -345,7 +313,7 @@
       "fileType": "other"
     },
     {
-      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/rust/RustAstParser.ts",
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/rust/RustAstParser.ts",
       "type": "file",
       "extension": ".ts",
       "loc": 2146,
@@ -353,7 +321,23 @@
       "fileType": "other"
     },
     {
-      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/typescript/index.ts",
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/cpp/CppAstParser.ts",
+      "type": "file",
+      "extension": ".ts",
+      "loc": 1652,
+      "sizeBytes": 50932,
+      "fileType": "other"
+    },
+    {
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/cpp/index.ts",
+      "type": "file",
+      "extension": ".ts",
+      "loc": 52,
+      "sizeBytes": 1396,
+      "fileType": "other"
+    },
+    {
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/typescript/index.ts",
       "type": "file",
       "extension": ".ts",
       "loc": 29,
@@ -361,870 +345,886 @@
       "fileType": "other"
     },
     {
-      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/typescript/TsAstParser.ts",
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/typescript/TsAstParser.ts",
       "type": "file",
       "extension": ".ts",
       "loc": 1483,
       "sizeBytes": 44620,
       "fileType": "other"
+    },
+    {
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/python/index.ts",
+      "type": "file",
+      "extension": ".ts",
+      "loc": 27,
+      "sizeBytes": 743,
+      "fileType": "other"
+    },
+    {
+      "id": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/python/PyAstParser.ts",
+      "type": "file",
+      "extension": ".ts",
+      "loc": 1822,
+      "sizeBytes": 55386,
+      "fileType": "other"
     }
   ],
   "edges": [
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/webpack.config.js",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/webpack.config.js",
       "to": "path",
       "type": "import",
       "isExternal": true
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/webpack.config.js",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/webpack.config.js",
       "to": "copy-webpack-plugin",
       "type": "import",
       "isExternal": true
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/extension.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/extension.ts",
       "to": "vscode",
       "type": "import",
       "isExternal": true
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/extension.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/view/FlowchartViewProvider.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/extension.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/view/FlowchartViewProvider.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/extension.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/view/FlowchartPanelProvider.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/extension.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/view/FlowchartPanelProvider.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/extension.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/view/CodebaseFlowProvider.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/extension.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/view/CodebaseFlowProvider.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/extension.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/index.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/extension.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/index.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/extension.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/llm/LLMManager.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/extension.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/llm/LLMManager.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/extension.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/llm/LLMContext.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/extension.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/llm/LLMContext.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/extension.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/utils/EnvironmentDetector.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/extension.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/utils/EnvironmentDetector.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/analyzer.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/analyzer.ts",
       "to": "vscode",
       "type": "import",
       "isExternal": true
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/analyzer.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/ir/ir.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/analyzer.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/ir/ir.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/analyzer.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/python/index.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/analyzer.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/python/index.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/analyzer.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/typescript/index.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/analyzer.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/typescript/index.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/analyzer.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/java/index.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/analyzer.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/java/index.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/analyzer.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/cpp/index.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/analyzer.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/cpp/index.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/analyzer.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/c/index.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/analyzer.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/c/index.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/analyzer.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/rust/index.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/analyzer.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/rust/index.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/analyzer.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/go/index.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/analyzer.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/go/index.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/EnhancedMermaidGenerator.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/ir/ir.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/EnhancedMermaidGenerator.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/ir/ir.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/EnhancedMermaidGenerator.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/utils/StringProcessor.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/EnhancedMermaidGenerator.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/utils/StringProcessor.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/EnhancedMermaidGenerator.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/utils/ThemeManager.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/EnhancedMermaidGenerator.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/utils/ThemeManager.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/MermaidGenerator.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/ir/ir.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/MermaidGenerator.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/ir/ir.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/MermaidGenerator.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/utils/StringProcessor.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/MermaidGenerator.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/utils/StringProcessor.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/types/tree-sitter-c.d.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/types/tree-sitter-c.d.ts",
       "to": "web-tree-sitter",
       "type": "import",
       "isExternal": true
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/types/tree-sitter-cpp.d.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/types/tree-sitter-cpp.d.ts",
       "to": "tree-sitter",
       "type": "import",
       "isExternal": true
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/types/tree-sitter-rust.d.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/types/tree-sitter-rust.d.ts",
       "to": "web-tree-sitter",
       "type": "import",
       "isExternal": true
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/view/BaseFlowchartProvider.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/view/BaseFlowchartProvider.ts",
       "to": "vscode",
       "type": "import",
       "isExternal": true
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/view/BaseFlowchartProvider.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/analyzer.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/view/BaseFlowchartProvider.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/analyzer.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/view/BaseFlowchartProvider.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/ir/ir.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/view/BaseFlowchartProvider.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/ir/ir.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/view/BaseFlowchartProvider.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/EnhancedMermaidGenerator.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/view/BaseFlowchartProvider.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/EnhancedMermaidGenerator.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/view/BaseFlowchartProvider.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/llm/LLMManager.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/view/BaseFlowchartProvider.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/llm/LLMManager.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/view/BaseFlowchartProvider.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/llm/LLMContext.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/view/BaseFlowchartProvider.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/llm/LLMContext.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/view/BaseFlowchartProvider.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/utils/EnvironmentDetector.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/view/BaseFlowchartProvider.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/utils/EnvironmentDetector.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/view/BaseFlowchartProvider.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/utils/MetricsAnalyzer.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/view/BaseFlowchartProvider.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/utils/MetricsAnalyzer.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/view/BaseFlowchartProvider.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/view/BaseFlowchartProvider.ts",
       "to": "path",
       "type": "import",
       "isExternal": true
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/view/CodebaseFlowProvider.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/view/CodebaseFlowProvider.ts",
       "to": "vscode",
       "type": "import",
       "isExternal": true
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/view/CodebaseFlowProvider.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/view/CodebaseFlowProvider.ts",
       "to": "path",
       "type": "import",
       "isExternal": true
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/view/CodebaseFlowProvider.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/dependency/CodebaseAnalyzer.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/view/CodebaseFlowProvider.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/dependency/CodebaseAnalyzer.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/view/CodebaseFlowProvider.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/dependency/CodebaseGraphBuilder.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/view/CodebaseFlowProvider.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/dependency/CodebaseGraphBuilder.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/view/CodebaseFlowProvider.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/utils/EnvironmentDetector.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/view/CodebaseFlowProvider.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/utils/EnvironmentDetector.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/view/FlowchartPanelProvider.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/view/FlowchartPanelProvider.ts",
       "to": "vscode",
       "type": "import",
       "isExternal": true
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/view/FlowchartPanelProvider.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/utils/EnvironmentDetector.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/view/FlowchartPanelProvider.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/utils/EnvironmentDetector.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/view/FlowchartPanelProvider.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/view/BaseFlowchartProvider.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/view/FlowchartPanelProvider.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/view/BaseFlowchartProvider.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/view/FlowchartViewProvider.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/view/FlowchartViewProvider.ts",
       "to": "vscode",
       "type": "import",
       "isExternal": true
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/view/FlowchartViewProvider.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/view/FlowchartViewProvider.ts",
       "to": "path",
       "type": "import",
       "isExternal": true
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/view/FlowchartViewProvider.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/utils/ThemeManager.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/view/FlowchartViewProvider.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/utils/ThemeManager.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/view/FlowchartViewProvider.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/utils/EnvironmentDetector.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/view/FlowchartViewProvider.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/utils/EnvironmentDetector.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/view/FlowchartViewProvider.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/view/BaseFlowchartProvider.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/view/FlowchartViewProvider.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/view/BaseFlowchartProvider.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/common/AbstractParser.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/common/AbstractParser.ts",
       "to": "web-tree-sitter",
       "type": "import",
       "isExternal": true
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/common/AbstractParser.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/ir/ir.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/common/AbstractParser.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/ir/ir.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/common/AbstractParser.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/utils/StringProcessor.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/common/AbstractParser.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/utils/StringProcessor.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/common/AbstractParser.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/common/AstParserTypes.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/common/AbstractParser.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/common/AstParserTypes.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/common/AstParserTypes.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/ir/ir.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/common/AstParserTypes.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/ir/ir.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/dependency/CodebaseAnalyzer.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/dependency/CodebaseAnalyzer.ts",
       "to": "vscode",
       "type": "import",
       "isExternal": true
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/dependency/CodebaseAnalyzer.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/dependency/CodebaseAnalyzer.ts",
       "to": "path",
       "type": "import",
       "isExternal": true
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/dependency/CodebaseAnalyzer.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/dependency/CodebaseAnalyzer.ts",
       "to": "fs",
       "type": "import",
       "isExternal": true
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/dependency/CodebaseAnalyzer.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/ir/ir.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/dependency/CodebaseAnalyzer.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/ir/ir.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/dependency/CodebaseAnalyzer.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/dependency/FileTypeClassifier.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/dependency/CodebaseAnalyzer.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/dependency/FileTypeClassifier.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/dependency/CodebaseGraphBuilder.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/dependency/CodebaseGraphBuilder.ts",
       "to": "path",
       "type": "import",
       "isExternal": true
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/dependency/CodebaseGraphBuilder.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/dependency/CodebaseAnalyzer.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/dependency/CodebaseGraphBuilder.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/dependency/CodebaseAnalyzer.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/dependency/CodebaseGraphBuilder.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/dependency/CodebaseMermaidGenerator.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/dependency/CodebaseGraphBuilder.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/dependency/CodebaseMermaidGenerator.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/dependency/CodebaseMermaidGenerator.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/dependency/CodebaseMermaidGenerator.ts",
       "to": "path",
       "type": "import",
       "isExternal": true
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/dependency/CodebaseMermaidGenerator.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/dependency/CodebaseAnalyzer.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/dependency/CodebaseMermaidGenerator.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/dependency/CodebaseAnalyzer.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/dependency/CodebaseMermaidGenerator.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/dependency/FileTypeClassifier.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/dependency/CodebaseMermaidGenerator.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/dependency/FileTypeClassifier.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/dependency/FileTypeClassifier.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/dependency/FileTypeClassifier.ts",
       "to": "path",
       "type": "import",
       "isExternal": true
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/dependency/index.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/dependency/CodebaseAnalyzer.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/dependency/index.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/dependency/CodebaseAnalyzer.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/dependency/index.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/dependency/CodebaseGraphBuilder.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/dependency/index.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/dependency/CodebaseGraphBuilder.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/dependency/index.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/dependency/CodebaseMermaidGenerator.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/dependency/index.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/dependency/CodebaseMermaidGenerator.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/dependency/index.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/dependency/FileTypeClassifier.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/dependency/index.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/dependency/FileTypeClassifier.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/llm/CacheManager.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/index.ts",
       "to": "vscode",
       "type": "import",
       "isExternal": true
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/llm/CacheManager.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/llm/LLMLogger.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/index.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/python/index.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/llm/LLMContext.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/index.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/typescript/index.ts",
+      "type": "import",
+      "isExternal": false
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/index.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/java/index.ts",
+      "type": "import",
+      "isExternal": false
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/index.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/cpp/index.ts",
+      "type": "import",
+      "isExternal": false
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/index.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/c/index.ts",
+      "type": "import",
+      "isExternal": false
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/index.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/rust/index.ts",
+      "type": "import",
+      "isExternal": false
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/index.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/utils/EnvironmentDetector.ts",
+      "type": "import",
+      "isExternal": false
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/index.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/go/index.ts",
+      "type": "import",
+      "isExternal": false
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/llm/CacheManager.ts",
       "to": "vscode",
       "type": "import",
       "isExternal": true
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/llm/LLMLogger.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/llm/CacheManager.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/llm/LLMLogger.ts",
+      "type": "import",
+      "isExternal": false
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/llm/LLMContext.ts",
       "to": "vscode",
       "type": "import",
       "isExternal": true
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/llm/LLMManager.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/llm/LLMLogger.ts",
       "to": "vscode",
       "type": "import",
       "isExternal": true
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/llm/LLMManager.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/llm/LLMService.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/llm/LLMManager.ts",
+      "to": "vscode",
+      "type": "import",
+      "isExternal": true
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/llm/LLMManager.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/llm/LLMService.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/llm/LLMManager.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/llm/LLMLogger.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/llm/LLMManager.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/llm/LLMLogger.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/llm/LLMManager.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/llm/CacheManager.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/llm/LLMManager.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/llm/CacheManager.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/llm/LLMService.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/llm/LLMService.ts",
       "to": "crypto",
       "type": "import",
       "isExternal": true
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/llm/LLMService.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/llm/LLMLogger.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/llm/LLMService.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/llm/LLMLogger.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/index.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/utils/EnvironmentDetector.ts",
       "to": "vscode",
       "type": "import",
       "isExternal": true
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/index.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/python/index.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/utils/MetricsAnalyzer.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/ir/ir.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/index.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/typescript/index.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/utils/StringProcessor.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/ir/ir.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/index.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/java/index.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/utils/ThemeManager.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/ir/ir.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/index.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/cpp/index.ts",
-      "type": "import",
-      "isExternal": false
-    },
-    {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/index.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/c/index.ts",
-      "type": "import",
-      "isExternal": false
-    },
-    {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/index.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/rust/index.ts",
-      "type": "import",
-      "isExternal": false
-    },
-    {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/index.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/utils/EnvironmentDetector.ts",
-      "type": "import",
-      "isExternal": false
-    },
-    {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/index.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/go/index.ts",
-      "type": "import",
-      "isExternal": false
-    },
-    {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/utils/EnvironmentDetector.ts",
-      "to": "vscode",
-      "type": "import",
-      "isExternal": true
-    },
-    {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/utils/MetricsAnalyzer.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/ir/ir.ts",
-      "type": "import",
-      "isExternal": false
-    },
-    {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/utils/StringProcessor.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/ir/ir.ts",
-      "type": "import",
-      "isExternal": false
-    },
-    {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/utils/ThemeManager.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/ir/ir.ts",
-      "type": "import",
-      "isExternal": false
-    },
-    {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/c/CAstParser.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/c/CAstParser.ts",
       "to": "web-tree-sitter",
       "type": "import",
       "isExternal": true
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/c/CAstParser.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/common/AbstractParser.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/c/CAstParser.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/common/AbstractParser.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/c/CAstParser.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/ir/ir.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/c/CAstParser.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/ir/ir.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/c/CAstParser.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/common/AstParserTypes.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/c/CAstParser.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/common/AstParserTypes.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/c/CAstParser.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/common/ParserInit.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/c/CAstParser.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/common/ParserInit.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/c/index.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/c/CAstParser.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/c/index.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/c/CAstParser.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/c/index.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/ir/ir.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/c/index.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/ir/ir.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/common/ParserInit.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/common/ParserInit.ts",
       "to": "web-tree-sitter",
       "type": "import",
       "isExternal": true
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/java/index.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/java/JavaAstParser.ts",
-      "type": "import",
-      "isExternal": false
-    },
-    {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/java/index.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/ir/ir.ts",
-      "type": "import",
-      "isExternal": false
-    },
-    {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/java/JavaAstParser.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/go/GoAstParser.ts",
       "to": "web-tree-sitter",
       "type": "import",
       "isExternal": true
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/java/JavaAstParser.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/common/AbstractParser.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/go/GoAstParser.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/common/AbstractParser.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/java/JavaAstParser.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/ir/ir.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/go/GoAstParser.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/ir/ir.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/java/JavaAstParser.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/common/AstParserTypes.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/go/GoAstParser.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/common/AstParserTypes.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/java/JavaAstParser.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/common/ParserInit.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/go/GoAstParser.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/common/ParserInit.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/cpp/CppAstParser.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/go/index.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/go/GoAstParser.ts",
+      "type": "import",
+      "isExternal": false
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/go/index.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/ir/ir.ts",
+      "type": "import",
+      "isExternal": false
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/java/index.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/java/JavaAstParser.ts",
+      "type": "import",
+      "isExternal": false
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/java/index.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/ir/ir.ts",
+      "type": "import",
+      "isExternal": false
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/java/JavaAstParser.ts",
       "to": "web-tree-sitter",
       "type": "import",
       "isExternal": true
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/cpp/CppAstParser.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/common/AbstractParser.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/java/JavaAstParser.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/common/AbstractParser.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/cpp/CppAstParser.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/ir/ir.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/java/JavaAstParser.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/ir/ir.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/cpp/CppAstParser.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/common/AstParserTypes.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/java/JavaAstParser.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/common/AstParserTypes.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/cpp/CppAstParser.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/common/ParserInit.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/java/JavaAstParser.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/common/ParserInit.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/cpp/index.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/cpp/CppAstParser.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/rust/index.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/rust/RustAstParser.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/cpp/index.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/ir/ir.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/rust/index.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/ir/ir.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/go/GoAstParser.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/rust/RustAstParser.ts",
       "to": "web-tree-sitter",
       "type": "import",
       "isExternal": true
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/go/GoAstParser.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/common/AbstractParser.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/rust/RustAstParser.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/common/AbstractParser.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/go/GoAstParser.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/ir/ir.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/rust/RustAstParser.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/ir/ir.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/go/GoAstParser.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/common/AstParserTypes.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/rust/RustAstParser.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/common/AstParserTypes.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/go/GoAstParser.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/common/ParserInit.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/rust/RustAstParser.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/common/ParserInit.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/go/index.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/go/GoAstParser.ts",
-      "type": "import",
-      "isExternal": false
-    },
-    {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/go/index.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/ir/ir.ts",
-      "type": "import",
-      "isExternal": false
-    },
-    {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/python/index.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/python/PyAstParser.ts",
-      "type": "import",
-      "isExternal": false
-    },
-    {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/python/index.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/ir/ir.ts",
-      "type": "import",
-      "isExternal": false
-    },
-    {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/python/PyAstParser.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/cpp/CppAstParser.ts",
       "to": "web-tree-sitter",
       "type": "import",
       "isExternal": true
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/python/PyAstParser.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/common/AbstractParser.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/cpp/CppAstParser.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/common/AbstractParser.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/python/PyAstParser.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/ir/ir.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/cpp/CppAstParser.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/ir/ir.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/python/PyAstParser.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/common/AstParserTypes.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/cpp/CppAstParser.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/common/AstParserTypes.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/python/PyAstParser.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/common/ParserInit.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/cpp/CppAstParser.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/common/ParserInit.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/rust/index.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/rust/RustAstParser.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/cpp/index.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/cpp/CppAstParser.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/rust/index.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/ir/ir.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/cpp/index.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/ir/ir.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/rust/RustAstParser.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/typescript/index.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/typescript/TsAstParser.ts",
+      "type": "import",
+      "isExternal": false
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/typescript/index.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/ir/ir.ts",
+      "type": "import",
+      "isExternal": false
+    },
+    {
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/typescript/TsAstParser.ts",
       "to": "web-tree-sitter",
       "type": "import",
       "isExternal": true
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/rust/RustAstParser.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/common/AbstractParser.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/typescript/TsAstParser.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/common/AbstractParser.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/rust/RustAstParser.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/ir/ir.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/typescript/TsAstParser.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/ir/ir.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/rust/RustAstParser.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/common/AstParserTypes.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/typescript/TsAstParser.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/common/AstParserTypes.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/rust/RustAstParser.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/common/ParserInit.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/typescript/TsAstParser.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/common/ParserInit.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/typescript/index.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/typescript/TsAstParser.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/python/index.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/python/PyAstParser.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/typescript/index.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/ir/ir.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/python/index.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/ir/ir.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/typescript/TsAstParser.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/python/PyAstParser.ts",
       "to": "web-tree-sitter",
       "type": "import",
       "isExternal": true
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/typescript/TsAstParser.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/common/AbstractParser.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/python/PyAstParser.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/common/AbstractParser.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/typescript/TsAstParser.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/ir/ir.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/python/PyAstParser.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/ir/ir.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/typescript/TsAstParser.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/common/AstParserTypes.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/python/PyAstParser.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/common/AstParserTypes.ts",
       "type": "import",
       "isExternal": false
     },
     {
-      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/typescript/TsAstParser.ts",
-      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773277605636/src/core/language-services/common/ParserInit.ts",
+      "from": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/python/PyAstParser.ts",
+      "to": "C:/Users/dvyns/AppData/Local/Temp/repo-visualizer-1773320069742/src/core/language-services/common/ParserInit.ts",
       "type": "import",
       "isExternal": false
     }

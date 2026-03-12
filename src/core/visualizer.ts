@@ -30,6 +30,22 @@ function baseName(value: string): string {
   return parts[parts.length - 1] || value
 }
 
+function displayPath(value: string): string {
+  const normalized = String(value || "").replace(/\\/g, "/")
+  const lower = normalized.toLowerCase()
+  const marker = "/repo-visualizer/"
+  const idx = lower.indexOf(marker)
+  if (idx !== -1) {
+    return normalized.slice(idx + 1)
+  }
+  const bare = "repo-visualizer/"
+  const idxBare = lower.indexOf(bare)
+  if (idxBare !== -1) {
+    return normalized.slice(idxBare)
+  }
+  return normalized
+}
+
 function typeColor(fileType?: string): string {
   switch (fileType) {
     case "component":
@@ -268,10 +284,58 @@ export function generateVisualization(
     }
     .side {
       display: none;
+      min-height: 0;
+    }
+    body.flow-mode .main {
+      grid-template-columns: minmax(0, 1fr) 380px;
+    }
+    body.flow-mode .side {
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+      overflow: hidden;
+      gap: 10px;
+    }
+    body.flow-mode .side.metrics-open {
+      flex-direction: column;
+    }
+    body.flow-mode {
+      overflow: hidden;
+    }
+    body.flow-mode #codePanel {
+      height: 100%;
+      min-height: 0;
+    }
+    body.flow-mode #codePanel .panel-body {
+      min-height: 0;
+      overflow: hidden;
+    }
+    body.flow-mode #codeView {
+      height: 100%;
+      overflow: auto;
+    }
+    body.flow-mode #metricsPanel {
+      height: 100%;
+      min-height: 0;
+    }
+    body.flow-mode #metricsPanel .panel-body {
+      min-height: 0;
+      overflow: auto;
+    }
+    body.flow-mode #metricsSideSlot {
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    body.flow-mode #metricsSideSlot > .panel {
+      flex: 1;
+      min-height: 0;
     }
     .panel {
       display: grid;
       grid-template-rows: auto 1fr;
+      min-height: 0;
     }
     .panel-header {
       padding: 9px 12px;
@@ -341,13 +405,35 @@ export function generateVisualization(
       min-height: 180px;
       border: 1px solid var(--line);
       border-radius: 8px;
-      padding: 10px;
       background: #0d1424;
       overflow: auto;
-      white-space: pre;
       font-family: Consolas, monospace;
       font-size: 11px;
       line-height: 1.45;
+    }
+    .code-line {
+      display: grid;
+      grid-template-columns: 42px 1fr;
+      gap: 10px;
+      padding: 2px 10px;
+    }
+    .code-line:hover {
+      background: rgba(45, 212, 191, 0.08);
+    }
+    .code-line .line-no {
+      color: var(--muted);
+      text-align: right;
+      user-select: none;
+    }
+    .code-line .line-text {
+      white-space: pre;
+    }
+    .code-line.flow-highlight {
+      background: rgba(244, 63, 94, 0.18);
+      box-shadow: inset 0 0 0 1px rgba(244, 63, 94, 0.35);
+    }
+    .code-line.cursor-highlight {
+      background: rgba(34, 197, 94, 0.15);
     }
     .control-drawer {
       position: fixed;
@@ -376,11 +462,12 @@ export function generateVisualization(
       pointer-events: auto;
     }
     .control-drawer .btn,
-    .control-drawer #searchInput {
-      width: 100%;
-    }
+    .control-drawer #searchInput,
     .control-drawer .panel {
       border-radius: 10px;
+    }
+    .control-drawer #searchInput {
+      width: 100%;
     }
     .legend-grid {
       display: grid;
@@ -417,9 +504,10 @@ export function generateVisualization(
       font-weight: 600;
       margin-bottom: 4px;
     }
-    .control-title {
-      font-size: 11px;
-      color: var(--muted);
+    .flow-actions {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
     }
     @media (max-width: 1100px) {
       .main { grid-template-columns: 1fr; }
@@ -435,32 +523,24 @@ export function generateVisualization(
       </div>
       <div class="actions">
         <button id="backBtn" class="btn">Back To Repo</button>
+        <div id="flowActionBar" class="flow-actions"></div>
         <button id="controlsToggle" class="btn">Open Controls</button>
       </div>
     </header>
     <div id="controlDrawer" class="control-drawer">
-      <div class="control-title">Quick Controls</div>
       <input id="searchInput" type="text" placeholder="Search files/modules...">
-      <button id="fitBtn" class="btn">Fit</button>
-      <button id="resetBtn" class="btn">Reset</button>
-      <button id="toggleMetricsBtn" class="btn">Show Metrics</button>
-      <section id="metricsPanel" class="panel hidden">
-        <div class="panel-header">
-          <span>Metrics Dashboard</span>
-          <button id="collapseMetricsBtn" class="btn">Collapse</button>
-        </div>
-        <div id="metricsBody" class="panel-body"></div>
-      </section>
-      <section id="codePanel" class="panel collapsed">
-        <div class="panel-header">
-          <span>Source Viewer</span>
-          <button id="collapseCodeBtn" class="btn">Collapse</button>
-        </div>
-        <div class="panel-body">
-          <div id="codeMeta" class="code-meta">Select a local file node to load source.</div>
-          <pre id="codeView" class="code-view">No file selected.</pre>
-        </div>
-      </section>
+      <div id="quickButtonSlot">
+        <button id="fitBtn" class="btn">Fit</button>
+        <button id="toggleMetricsBtn" class="btn">Show Metrics</button>
+      </div>
+      <div id="metricsDrawerSlot">
+        <section id="metricsPanel" class="panel hidden">
+          <div class="panel-header">
+            <span>Metrics Dashboard</span>
+          </div>
+          <div id="metricsBody" class="panel-body"></div>
+        </section>
+      </div>
     </div>
 
     <main class="main">
@@ -480,12 +560,23 @@ export function generateVisualization(
           <div class="item"><span>Red Dashed</span><span>Source/Sink Link</span></div>
         </div>
         <div class="hint">
-          <span>Single click: overview + highlight</span>
+          <span>Single click: source + highlight</span>
           <span>Double click: top-down source-to-sink flowchart</span>
         </div>
       </section>
 
-      <aside class="side"></aside>
+      <aside class="side">
+        <section id="codePanel" class="panel">
+          <div class="panel-header">
+            <span>Source Viewer</span>
+          </div>
+          <div class="panel-body">
+            <div id="codeMeta" class="code-meta">Select a local file node to load source.</div>
+            <pre id="codeView" class="code-view">No file selected.</pre>
+          </div>
+        </section>
+        <div id="metricsSideSlot"></div>
+      </aside>
     </main>
   </div>
 
@@ -513,8 +604,8 @@ export function generateVisualization(
       viewData.edges.map((e) => [
         e.id,
         {
-          color: { color: "#6d7fa2", opacity: 0.75 },
-          width: 1.3
+          color: { color: "#8fa3c7", opacity: 0.55 },
+          width: 1.05
         }
       ])
     );
@@ -526,12 +617,12 @@ export function generateVisualization(
       viewData.nodes.forEach((n) => seen.add(n.fileType || "other"));
       const types = [...seen].sort();
       const entries = [
-        { label: "External dependency", color: externalColor },
+        { label: "External module (third-party)", color: externalColor },
         ...types.map((type) => ({
-          label: type,
+          label: "Local " + type + " file",
           color: colorByType(type)
         })),
-        { label: "Highlighted path", color: "#ff3b3b" }
+        { label: "Selected node + connected dependencies", color: "#ff3b3b" }
       ];
       legend.innerHTML = entries
         .map(
@@ -549,7 +640,7 @@ export function generateVisualization(
       viewData.nodes.map((node) => ({
         id: node.id,
         label: node.label,
-        title: node.title,
+        title: shortName(node.nodeId),
         shape: "dot",
         size: node.isExternal ? 12 : 16,
         ...mainBaseNodeStyles.get(node.id)
@@ -562,26 +653,36 @@ export function generateVisualization(
         to: edge.to,
         label: edge.label,
         arrows: "to",
-        smooth: { type: "dynamic" },
         ...mainBaseEdgeStyles.get(edge.id)
       }))
     );
 
     const mainOptions = {
-      nodes: { borderWidthSelected: 3 },
+      layout: { improvedLayout: true },
+      nodes: {
+        borderWidthSelected: 3,
+        margin: { top: 6, right: 8, bottom: 6, left: 8 }
+      },
       edges: {
-        font: { color: "#b8c4da", size: 10, strokeWidth: 0 },
-        arrows: { to: { enabled: true, scaleFactor: 0.5 } }
+        font: { color: "#b8c4da", size: 9, strokeWidth: 0 },
+        arrows: { to: { enabled: true, scaleFactor: 0.45 } },
+        smooth: { enabled: true, type: "continuous", roundness: 0.15 },
+        color: { color: "#8fa3c7", opacity: 0.6 },
+        width: 1.05,
+        hoverWidth: 1.6,
+        selectionWidth: 2.2
       },
       physics: {
         enabled: true,
-        solver: "forceAtlas2Based",
-        stabilization: { iterations: 170, fit: true },
-        forceAtlas2Based: {
-          gravitationalConstant: -80,
-          springLength: 130,
-          springConstant: 0.05,
-          centralGravity: 0.003
+        solver: "barnesHut",
+        stabilization: { iterations: 240, fit: true },
+        barnesHut: {
+          gravitationalConstant: -1800,
+          centralGravity: 0.01,
+          springLength: 180,
+          springConstant: 0.04,
+          damping: 0.35,
+          avoidOverlap: 0.8
         }
       },
       interaction: { hover: true, zoomView: true, dragView: true, keyboard: true }
@@ -591,6 +692,15 @@ export function generateVisualization(
     let network = null;
 
     let initialPositions = null;
+    let userMovedNodeIds = new Set();
+    let flowNodeMeta = new Map();
+    let flowNodeRanges = [];
+    let flowBaseNodeStyles = new Map();
+    let flowHoveredNodeId = null;
+    let flowHighlightRange = null;
+    let cursorHighlightLine = null;
+    let codeLineElements = [];
+    let flowMetricsContext = null;
     let mode = "main";
     let flowData = null;
     let flowInitialPositions = null;
@@ -609,15 +719,45 @@ export function generateVisualization(
 
     function setFlowModeUI(isFlow) {
       const topBack = document.getElementById("backBtn");
+      const flowActionBar = document.getElementById("flowActionBar");
+      const quickButtonSlot = document.getElementById("quickButtonSlot");
+      const fitBtn = document.getElementById("fitBtn");
+      const toggleMetricsBtn = document.getElementById("toggleMetricsBtn");
+      const controlsToggle = document.getElementById("controlsToggle");
+      const metricsPanel = document.getElementById("metricsPanel");
+      const metricsDrawerSlot = document.getElementById("metricsDrawerSlot");
+      const metricsSideSlot = document.getElementById("metricsSideSlot");
+      const searchInput = document.getElementById("searchInput");
       const canvasBack = document.getElementById("flowBackBtn");
       const flowLegend = document.getElementById("flowLegend");
-      const searchInput = document.getElementById("searchInput");
 
       if (topBack) {
         topBack.classList.remove("hidden");
         topBack.style.display = "inline-flex";
         topBack.style.visibility = "visible";
         topBack.style.opacity = "1";
+      }
+      if (controlsToggle) {
+        controlsToggle.style.display = isFlow ? "none" : "inline-flex";
+      }
+      if (searchInput) {
+        searchInput.style.display = isFlow ? "none" : "block";
+      }
+      if (flowActionBar && quickButtonSlot && fitBtn && toggleMetricsBtn) {
+        if (isFlow) {
+          flowActionBar.appendChild(fitBtn);
+          flowActionBar.appendChild(toggleMetricsBtn);
+        } else {
+          quickButtonSlot.appendChild(fitBtn);
+          quickButtonSlot.appendChild(toggleMetricsBtn);
+        }
+      }
+      if (metricsPanel && metricsDrawerSlot && metricsSideSlot) {
+        if (isFlow) {
+          metricsSideSlot.appendChild(metricsPanel);
+        } else {
+          metricsDrawerSlot.appendChild(metricsPanel);
+        }
       }
       if (canvasBack) {
         canvasBack.classList.toggle("hidden", !isFlow);
@@ -627,23 +767,186 @@ export function generateVisualization(
       }
 
       if (flowLegend) flowLegend.classList.toggle("hidden", !isFlow);
-      if (searchInput) searchInput.disabled = isFlow;
+      if (document.body) {
+        if (isFlow) {
+          document.body.classList.add("flow-mode");
+        } else {
+          document.body.classList.remove("flow-mode");
+        }
+      }
+      syncMetricsLayout();
+      if (!isFlow) return;
+      const codePanel = document.getElementById("codePanel");
+      if (!metricsVisible && codePanel && codePanel.classList.contains("hidden")) {
+        codePanel.classList.remove("hidden");
+      }
     }
 
-    function revealSourcePanel() {
-      const controlDrawer = document.getElementById("controlDrawer");
-      const controlsToggle = document.getElementById("controlsToggle");
-      if (controlDrawer && !controlDrawer.classList.contains("open")) {
-        controlDrawer.classList.add("open");
-        if (controlsToggle) controlsToggle.textContent = "Close Controls";
-      }
+    function escapeHtml(value) {
+      return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#39;");
+    }
 
-      const codePanel = document.getElementById("codePanel");
-      const collapseCodeBtn = document.getElementById("collapseCodeBtn");
-      if (codePanel && codePanel.classList.contains("collapsed")) {
-        codePanel.classList.remove("collapsed");
-        if (collapseCodeBtn) collapseCodeBtn.textContent = "Collapse";
+    function resetCodeLineState() {
+      flowHighlightRange = null;
+      cursorHighlightLine = null;
+      codeLineElements = [];
+    }
+
+    function renderCodeWithLines(source) {
+      const code = document.getElementById("codeView");
+      if (!code) return;
+      const lines = String(source || "").split(/\\r?\\n/);
+      const html = lines
+        .map((line, idx) => {
+          const safe = escapeHtml(line);
+          const content = safe.length ? safe : "&nbsp;";
+          return (
+            '<div class="code-line" data-line="' +
+            (idx + 1) +
+            '"><span class="line-no">' +
+            (idx + 1) +
+            '</span><span class="line-text">' +
+            content +
+            "</span></div>"
+          );
+        })
+        .join("");
+      code.innerHTML = html;
+      codeLineElements = Array.from(code.querySelectorAll(".code-line"));
+      flowHighlightRange = null;
+      cursorHighlightLine = null;
+    }
+
+    function setLineClass(line, className, enabled) {
+      const el = codeLineElements[line - 1];
+      if (!el) return;
+      if (enabled) {
+        el.classList.add(className);
+      } else {
+        el.classList.remove(className);
       }
+    }
+
+    function clearFlowLineHighlight() {
+      if (!flowHighlightRange) return;
+      const start = flowHighlightRange.start;
+      const end = flowHighlightRange.end;
+      for (let i = start; i <= end; i++) {
+        setLineClass(i, "flow-highlight", false);
+      }
+      flowHighlightRange = null;
+    }
+
+    function setFlowLineHighlight(startLine, endLine) {
+      if (!codeLineElements.length) return;
+      const maxLine = codeLineElements.length;
+      const start = Math.max(1, Math.min(maxLine, startLine || 1));
+      const end = Math.max(start, Math.min(maxLine, endLine || start));
+      if (flowHighlightRange && flowHighlightRange.start === start && flowHighlightRange.end === end) {
+        return;
+      }
+      clearFlowLineHighlight();
+      for (let i = start; i <= end; i++) {
+        setLineClass(i, "flow-highlight", true);
+      }
+      flowHighlightRange = { start, end };
+      ensureLineVisible(start);
+    }
+
+    function clearCursorLineHighlight() {
+      if (!cursorHighlightLine) return;
+      setLineClass(cursorHighlightLine, "cursor-highlight", false);
+      cursorHighlightLine = null;
+    }
+
+    function setCursorLineHighlight(line) {
+      if (!line || cursorHighlightLine === line) return;
+      clearCursorLineHighlight();
+      setLineClass(line, "cursor-highlight", true);
+      cursorHighlightLine = line;
+    }
+
+    function ensureLineVisible(line) {
+      const codeView = document.getElementById("codeView");
+      const el = codeLineElements[line - 1];
+      if (!codeView || !el) return;
+      const viewRect = codeView.getBoundingClientRect();
+      const lineRect = el.getBoundingClientRect();
+      const isAbove = lineRect.top < viewRect.top + 12;
+      const isBelow = lineRect.bottom > viewRect.bottom - 12;
+      if (isAbove || isBelow) {
+        el.scrollIntoView({ block: "center", behavior: "smooth" });
+      }
+    }
+
+    function setFlowNodeGlow(nodeId) {
+      if (!flowData || !flowBaseNodeStyles.size) return;
+      if (flowHoveredNodeId === nodeId) return;
+      const glowBorder = "#38bdf8";
+      const glowShadow = "rgba(56, 189, 248, 0.9)";
+      if (flowHoveredNodeId !== null) {
+        const base = flowBaseNodeStyles.get(flowHoveredNodeId);
+        if (base) {
+          flowData.nodes.update({
+            id: flowHoveredNodeId,
+            color: base.color,
+            borderWidth: base.borderWidth,
+            font: base.font,
+            shape: base.shape,
+            shadow: { enabled: false }
+          });
+        }
+      }
+      flowHoveredNodeId = nodeId;
+      if (nodeId === null || nodeId === undefined) return;
+      const base = flowBaseNodeStyles.get(nodeId);
+      if (!base) return;
+      const baseColor = typeof base.color === "string" ? base.color : base.color?.background;
+      const baseFont = base.font || { color: "#e8edf7", size: 11 };
+      flowData.nodes.update({
+        id: nodeId,
+        color: {
+          background: baseColor || "#64748b",
+          border: glowBorder,
+          highlight: { background: baseColor || "#64748b", border: glowBorder },
+          hover: { background: baseColor || "#64748b", border: glowBorder }
+        },
+        borderWidth: Math.max(4.2, (base.borderWidth || 1.4) + 2.6),
+        font: { ...baseFont, color: "#ffffff", size: Math.min(16, (baseFont.size || 11) + 3) },
+        shape: base.shape,
+        shadow: { enabled: true, color: glowShadow, size: 36, x: 0, y: 0 }
+      });
+    }
+
+    function setFlowNodeSelection(nodeId) {
+      if (!network || mode !== "flow") return;
+      if (nodeId === null || nodeId === undefined) {
+        if (network.unselectAll) network.unselectAll();
+        return;
+      }
+      if (network.selectNodes) {
+        network.selectNodes([nodeId], false);
+      }
+    }
+
+    function findFlowNodeByLine(line) {
+      if (!line || !flowNodeRanges.length) return null;
+      let best = null;
+      let bestSpan = Infinity;
+      for (const entry of flowNodeRanges) {
+        if (line < entry.startLine || line > entry.endLine) continue;
+        const span = entry.endLine - entry.startLine;
+        if (span < bestSpan) {
+          best = entry;
+          bestSpan = span;
+        }
+      }
+      return best;
     }
 
     function positionsAreValid(positions) {
@@ -660,6 +963,10 @@ export function generateVisualization(
         }
       }
       return true;
+    }
+
+    function clearMovedNodes() {
+      userMovedNodeIds.clear();
     }
 
     function loadSavedLayout() {
@@ -697,6 +1004,7 @@ export function generateVisualization(
       );
       network.setOptions({ physics: false });
       initialPositions = positions;
+      clearMovedNodes();
       setTimeout(() => network.fit({ animation: { duration: 250 } }), 0);
       return true;
     }
@@ -742,9 +1050,9 @@ export function generateVisualization(
           clearTimeout(clickTimeout);
         }
 
-        clickTimeout = setTimeout(() => {
+        clickTimeout = setTimeout(async () => {
           highlightPathRed(node.nodeId);
-          showNodeOverview(node);
+          await loadSource(node);
           clickTimeout = null;
         }, 250);
       });
@@ -761,6 +1069,44 @@ export function generateVisualization(
         if (!node || node.isExternal) return;
         await loadSource(node);
         await showFlowGraph(node);
+      });
+
+      network.on("dragEnd", (params) => {
+        if (mode !== "main") return;
+        if (!params.nodes || !params.nodes.length) return;
+        if (!initialPositions) return;
+        const current = network.getPositions(params.nodes);
+        params.nodes.forEach((id) => {
+          const baseline = initialPositions[id];
+          const now = current[id];
+          if (!baseline || !now) return;
+          const dx = now.x - baseline.x;
+          const dy = now.y - baseline.y;
+          const moved = Math.hypot(dx, dy) > 1;
+          if (moved) {
+            userMovedNodeIds.add(id);
+          } else {
+            userMovedNodeIds.delete(id);
+          }
+        });
+      });
+
+      network.on("hoverNode", (params) => {
+        if (mode !== "flow") return;
+        const nodeId = params.node;
+        const meta = flowNodeMeta.get(nodeId);
+        if (meta && Number.isFinite(meta.startLine)) {
+          setFlowLineHighlight(meta.startLine, meta.startLine);
+        } else {
+          clearFlowLineHighlight();
+        }
+        setFlowNodeGlow(nodeId);
+      });
+
+      network.on("blurNode", () => {
+        if (mode !== "flow") return;
+        clearFlowLineHighlight();
+        setFlowNodeGlow(null);
       });
     }
 
@@ -785,12 +1131,29 @@ export function generateVisualization(
       network.once("stabilizationIterationsDone", () => {
         network.setOptions({ physics: false });
         initialPositions = network.getPositions();
+        clearMovedNodes();
         saveMainLayout(initialPositions);
         network.fit({ animation: { duration: 400 } });
       });
     }
 
     createMainNetwork();
+
+    function displayPath(value) {
+      const normalized = String(value || "").replace(/\\\\/g, "/");
+      const lower = normalized.toLowerCase();
+      const marker = "/repo-visualizer/";
+      const idx = lower.indexOf(marker);
+      if (idx !== -1) {
+        return normalized.slice(idx + 1);
+      }
+      const bare = "repo-visualizer/";
+      const idxBare = lower.indexOf(bare);
+      if (idxBare !== -1) {
+        return normalized.slice(idxBare);
+      }
+      return normalized;
+    }
 
     function shortName(value) {
       const parts = String(value).replace(/\\\\/g, "/").split("/");
@@ -998,6 +1361,7 @@ export function generateVisualization(
       document.getElementById("metricsBody").innerHTML =
         '<div class="metrics-grid">' +
           metricCard("File", shortName(node.nodeId)) +
+          metricCard("Path", displayPath(node.nodeId)) +
           metricCard("Flow Nodes", entities.length) +
           metricCard("Flow Edges", baseFlowEdges.length) +
           metricCard("Unique Step Types", typeEntries.length) +
@@ -1049,6 +1413,23 @@ export function generateVisualization(
           '<div class="list-item"><strong>Local dependencies:</strong> ' + (localDependencies.length ? localDependencies.join(", ") : "none") + '</div>' +
           '<div class="list-item"><strong>Used by:</strong> ' + (usedBy.length ? usedBy.join(", ") : "none") + '</div>' +
         "</div>";
+    }
+
+    function renderMetricsForMode() {
+      if (mode === "flow") {
+        if (flowMetricsContext) {
+          renderFlowMetrics(
+            flowMetricsContext.node,
+            flowMetricsContext.entities,
+            flowMetricsContext.baseFlowEdges
+          );
+        } else {
+          document.getElementById("metricsBody").innerHTML =
+            '<div class="list"><div class="list-item">No file metrics available.</div></div>';
+        }
+        return;
+      }
+      renderRepoMetrics();
     }
 
     function resetMainStyles() {
@@ -1112,13 +1493,15 @@ export function generateVisualization(
       const code = document.getElementById("codeView");
 
       if (node.isExternal) {
-        meta.textContent = "External module: " + node.nodeId;
+      meta.textContent = "External module: " + node.nodeId;
         code.textContent = "Source preview unavailable for external modules.";
+        resetCodeLineState();
         return;
       }
 
       meta.textContent = "Loading " + node.nodeId + "...";
       code.textContent = "";
+      resetCodeLineState();
       try {
         const response = await fetch("http://localhost:" + serverPort + "/api/source?file=" + encodeURIComponent(node.nodeId));
         const payload = await response.json();
@@ -1126,14 +1509,15 @@ export function generateVisualization(
           throw new Error(payload.message || payload.error || "Failed to load source");
         }
         const source = String(payload.content || "");
-        meta.innerHTML =
-          "<span><strong>File:</strong> " + node.nodeId + "</span>" +
-          "<span><strong>Type:</strong> " + (node.fileType || "other") + "</span>" +
-          "<span><strong>Lines:</strong> " + (node.loc || source.split(/\\r?\\n/).length) + "</span>";
-        code.textContent = source;
+      meta.innerHTML =
+        "<span><strong>File:</strong> " + node.nodeId + "</span>" +
+        "<span><strong>Type:</strong> " + (node.fileType || "other") + "</span>" +
+        "<span><strong>Lines:</strong> " + (node.loc || source.split(/\\r?\\n/).length) + "</span>";
+        renderCodeWithLines(source);
       } catch (error) {
         meta.textContent = "Could not load source for " + node.nodeId;
         code.textContent = String(error);
+        resetCodeLineState();
       }
     }
 
@@ -1151,7 +1535,7 @@ export function generateVisualization(
         "<span><strong>Lines:</strong> " + (node.loc || 0) + "</span>" +
         "<span><strong>Size:</strong> " + formatBytes(node.sizeBytes || 0) + "</span>";
 
-      code.textContent =
+      const overview =
         "Overview for " + shortName(node.nodeId) + "\\n\\n" +
         "Depends on (local): " + localOutgoing.length + "\\n" +
         (localOutgoing.length
@@ -1165,6 +1549,7 @@ export function generateVisualization(
         (incoming.length
           ? incoming.slice(0, 12).map((e) => " - " + shortName(e.from)).join("\\n")
           : " - none");
+      renderCodeWithLines(overview);
     }
 
     function flowNodeColor(kind) {
@@ -1186,12 +1571,32 @@ export function generateVisualization(
       switch (kind) {
         case "condition":
           return "diamond";
+        case "loop":
+          return "circle";
         case "module":
         case "return":
           return "ellipse";
         default:
           return "box";
       }
+    }
+
+    function wrapLabel(text, maxLen = 22) {
+      const words = String(text || "").split(/\\s+/).filter(Boolean);
+      if (!words.length) return "";
+      const lines = [];
+      let current = words[0];
+      for (let i = 1; i < words.length; i++) {
+        const next = words[i];
+        if ((current + " " + next).length <= maxLen) {
+          current += " " + next;
+        } else {
+          lines.push(current);
+          current = next;
+        }
+      }
+      lines.push(current);
+      return lines.join("\\n");
     }
 
     async function showFlowGraph(node) {
@@ -1212,18 +1617,47 @@ export function generateVisualization(
             )
           : [];
 
+        flowNodeMeta = new Map();
+        flowNodeRanges = [];
+        flowBaseNodeStyles = new Map();
+        flowHoveredNodeId = null;
+        clearFlowLineHighlight();
+        clearCursorLineHighlight();
+        setFlowNodeGlow(null);
+
         const idToIndex = new Map();
         const flowNodes = entities.map((entity, index) => {
           idToIndex.set(entity.id, index);
+          let startLine = Number.isFinite(entity.startLine) ? entity.startLine + 1 : null;
+          let endLine = Number.isFinite(entity.endLine) ? entity.endLine + 1 : null;
+          if (startLine !== null && endLine !== null && startLine > endLine) {
+            const swap = startLine;
+            startLine = endLine;
+            endLine = swap;
+          }
+          if (startLine !== null && endLine !== null) {
+            flowNodeMeta.set(index, { startLine, endLine });
+            flowNodeRanges.push({ id: index, startLine, endLine });
+          }
+          const baseStyle = {
+            color: flowNodeColor(entity.type),
+            borderWidth: 1.4,
+            font: { color: "#e8edf7", size: 11 },
+            shape: flowNodeShape(entity.type)
+          };
+          flowBaseNodeStyles.set(index, baseStyle);
           return {
             id: index,
-            label: entity.name,
+            label: wrapLabel(entity.name),
             title: entity.type + " (lines " + (entity.startLine + 1) + "-" + (entity.endLine + 1) + ")",
             flowType: entity.type,
-            color: flowNodeColor(entity.type),
-            shape: flowNodeShape(entity.type),
+            startLine,
+            endLine,
+            color: baseStyle.color,
+            shape: baseStyle.shape,
             margin: 10,
-            font: { color: "#e8edf7", size: 11 }
+            font: baseStyle.font,
+            borderWidth: baseStyle.borderWidth
           };
         });
 
@@ -1259,13 +1693,21 @@ export function generateVisualization(
         let flowEdges = [...baseFlowEdges];
 
         if (!flowNodes.length) {
+          const emptyStyle = {
+            color: "#6b7280",
+            borderWidth: 1.4,
+            font: { color: "#e8edf7", size: 12 },
+            shape: "box"
+          };
+          flowBaseNodeStyles.set(0, emptyStyle);
           flowNodes.push({
             id: 0,
             label: "No entities found",
             title: node.nodeId,
-            color: "#6b7280",
-            shape: "box",
-            font: { color: "#e8edf7", size: 12 }
+            color: emptyStyle.color,
+            shape: emptyStyle.shape,
+            font: emptyStyle.font,
+            borderWidth: emptyStyle.borderWidth
           });
         }
 
@@ -1291,25 +1733,51 @@ export function generateVisualization(
 
         const sourceNodeId = -1001;
         const sinkNodeId = -1002;
-        flowNodes.push({
-          id: sourceNodeId,
-          label: "SOURCE",
-          title: "Known entry source",
-          shape: "box",
+        const sourceStyle = {
           color: "#16a34a",
-          size: 16,
-          font: { color: "#ecfdf5", size: 12 }
-        });
+          borderWidth: 1.4,
+          font: { color: "#ecfdf5", size: 12 },
+          shape: "box"
+        };
+        const sinkStyle = {
+          color: "#b91c1c",
+          borderWidth: 1.4,
+          font: { color: "#fef2f2", size: 12 },
+          shape: "box"
+        };
+        flowBaseNodeStyles.set(sourceNodeId, sourceStyle);
+        flowBaseNodeStyles.set(sinkNodeId, sinkStyle);
+          flowNodes.push({
+            id: sourceNodeId,
+            label: "SOURCE",
+            title: "Known entry source",
+            shape: sourceStyle.shape,
+            color: sourceStyle.color,
+            size: 16,
+            font: sourceStyle.font,
+            borderWidth: sourceStyle.borderWidth
+          });
         flowNodes.push({
           id: sinkNodeId,
           label: "SINK",
           title: "Known terminal sink",
-          shape: "box",
-          color: "#b91c1c",
+          shape: sinkStyle.shape,
+          color: sinkStyle.color,
           size: 16,
-          font: { color: "#fef2f2", size: 12 }
+          font: sinkStyle.font,
+          borderWidth: sinkStyle.borderWidth
         });
-        sourceCandidates.slice(0, 10).forEach((targetId, idx) => {
+        const MAX_ANCHOR_EDGES = 28;
+        const sourceTargets = sourceCandidates
+          .slice()
+          .sort((a, b) => (outgoingCount.get(b) || 0) - (outgoingCount.get(a) || 0))
+          .slice(0, MAX_ANCHOR_EDGES);
+        const sinkTargets = sinkCandidates
+          .slice()
+          .sort((a, b) => (incomingCount.get(b) || 0) - (incomingCount.get(a) || 0))
+          .slice(0, MAX_ANCHOR_EDGES);
+
+        sourceTargets.forEach((targetId, idx) => {
           flowEdges.push({
             id: "source-edge-" + idx,
             from: sourceNodeId,
@@ -1321,7 +1789,7 @@ export function generateVisualization(
             dashes: true
           });
         });
-        sinkCandidates.slice(0, 10).forEach((fromId, idx) => {
+        sinkTargets.forEach((fromId, idx) => {
           flowEdges.push({
             id: "sink-edge-" + idx,
             from: fromId,
@@ -1343,32 +1811,80 @@ export function generateVisualization(
           adjacency.get(e.from).push(e.to);
         });
         const levelMap = new Map();
-        const q = [sourceNodeId];
-        levelMap.set(sourceNodeId, 0);
+        const incomingById = new Map();
+        flowNodes.forEach((n) => {
+          incomingById.set(n.id, []);
+        });
+        flowEdges.forEach((e) => {
+          if (!incomingById.has(e.to)) incomingById.set(e.to, []);
+          incomingById.get(e.to).push(e.from);
+        });
+
+        let roots = flowNodes
+          .filter((n) => n.id !== sourceNodeId && n.id !== sinkNodeId)
+          .filter((n) => (incomingCount.get(n.id) || 0) === 0)
+          .map((n) => n.id);
+        if (!roots.length) {
+          const fallbackRoot = flowNodes.find(
+            (n) => n.id !== sourceNodeId && n.id !== sinkNodeId
+          );
+          if (fallbackRoot) roots = [fallbackRoot.id];
+        }
+
+        const q = [];
+        roots.forEach((id) => {
+          levelMap.set(id, 0);
+          q.push(id);
+        });
         while (q.length) {
           const current = q.shift();
           const currentLevel = levelMap.get(current) || 0;
           (adjacency.get(current) || []).forEach((next) => {
-            if (!levelMap.has(next)) {
-              levelMap.set(next, currentLevel + 1);
+            if (next === sourceNodeId || next === sinkNodeId) return;
+            const nextLevel = currentLevel + 1;
+            if (!levelMap.has(next) || (levelMap.get(next) || 0) > nextLevel) {
+              levelMap.set(next, nextLevel);
               q.push(next);
             }
           });
         }
-        flowNodes.forEach((n) => {
-          const level = levelMap.has(n.id) ? levelMap.get(n.id) : 1;
-          n.level = Number.isFinite(level) ? level : 1;
-        });
-        const allLevelsDefined = flowNodes.every((n) => Number.isFinite(n.level));
-        flowNodes.forEach((n) => {
-          n.level = Number.isFinite(n.level) ? Math.max(0, Math.round(n.level)) : 1;
-        });
-        let useHierarchical = allLevelsDefined && flowNodes.length > 0;
-        if (!useHierarchical) {
+
+        let changed = true;
+        let guard = flowNodes.length + 2;
+        while (changed && guard-- > 0) {
+          changed = false;
           flowNodes.forEach((n) => {
-            delete n.level;
+            if (n.id === sourceNodeId || n.id === sinkNodeId) return;
+            if (levelMap.has(n.id)) return;
+            const preds = incomingById.get(n.id) || [];
+            const predLevels = preds
+              .map((p) => levelMap.get(p))
+              .filter((v) => Number.isFinite(v));
+            if (predLevels.length) {
+              const min = Math.min(...predLevels);
+              levelMap.set(n.id, min + 1);
+              changed = true;
+            }
           });
         }
+
+        let maxLevel = 0;
+        levelMap.forEach((value) => {
+          if (Number.isFinite(value)) maxLevel = Math.max(maxLevel, value);
+        });
+        flowNodes.forEach((n) => {
+          if (n.id === sourceNodeId) {
+            n.level = 0;
+            return;
+          }
+          if (n.id === sinkNodeId) {
+            n.level = maxLevel + 2;
+            return;
+          }
+          const base = levelMap.has(n.id) ? levelMap.get(n.id) : maxLevel + 1;
+          n.level = Math.max(0, Math.round(base + 1));
+        });
+        const useHierarchical = flowNodes.length > 0;
 
         flowData = {
           nodes: new vis.DataSet(flowNodes),
@@ -1377,31 +1893,55 @@ export function generateVisualization(
         flowInitialPositions = null;
 
         network.setData(flowData);
+        const flowPhysics = useHierarchical
+          ? { enabled: false }
+          : {
+              enabled: true,
+              solver: "barnesHut",
+              stabilization: { iterations: 220, fit: true },
+              barnesHut: {
+                gravitationalConstant: -1200,
+                centralGravity: 0.01,
+                springLength: 170,
+                springConstant: 0.04,
+                damping: 0.35,
+                avoidOverlap: 0.9
+              }
+            };
         const flowOptions = {
+          interaction: { hover: true, dragView: true, zoomView: true },
           layout: {
             hierarchical: {
               enabled: useHierarchical,
               direction: "UD",
               sortMethod: "directed",
-              nodeSpacing: 170,
-              levelSeparation: 135,
-              treeSpacing: 300,
+              nodeSpacing: 340,
+              levelSeparation: 230,
+              treeSpacing: 520,
               blockShifting: true,
               edgeMinimization: true,
-              parentCentralization: true
+              parentCentralization: true,
+              shakeTowards: "roots"
             }
           },
-          physics: { enabled: false },
+          physics: flowPhysics,
           nodes: {
             borderWidthSelected: 3,
             borderWidth: 1.4,
+            widthConstraint: { minimum: 140, maximum: 200 },
+            heightConstraint: { minimum: 46 },
+            font: { size: 11, multi: "newline" },
+            margin: { top: 6, right: 10, bottom: 6, left: 10 },
             shapeProperties: { borderRadius: 6 }
           },
           edges: {
             font: { color: "#fda4af", size: 9, strokeWidth: 0, align: "top" },
             arrows: { to: { enabled: true, scaleFactor: 0.5 } },
             smooth: {
-              enabled: false
+              enabled: true,
+              type: "cubicBezier",
+              forceDirection: "vertical",
+              roundness: 0.45
             },
             color: { inherit: false }
           }
@@ -1415,7 +1955,10 @@ export function generateVisualization(
             flowNodes.forEach((n) => {
               delete n.level;
             });
-            flowOptions.layout.hierarchical.enabled = false;
+            flowOptions.layout.hierarchical.enabled = true;
+            flowOptions.physics = {
+              enabled: false
+            };
             network.setData({
               nodes: new vis.DataSet(flowNodes),
               edges: new vis.DataSet(flowEdges)
@@ -1429,6 +1972,7 @@ export function generateVisualization(
         titleText.textContent = "File Flow Graph: " + shortName(node.nodeId);
         if (backBtn) backBtn.style.fontWeight = "700";
         setFlowModeUI(true);
+        flowMetricsContext = { node, entities, baseFlowEdges };
         renderFlowMetrics(node, entities, baseFlowEdges);
         setTimeout(() => {
           network.fit({ animation: { duration: 300 } });
@@ -1458,6 +2002,13 @@ export function generateVisualization(
         mode = "main";
         flowData = null;
         flowInitialPositions = null;
+        flowNodeMeta = new Map();
+        flowNodeRanges = [];
+        flowBaseNodeStyles = new Map();
+        flowHoveredNodeId = null;
+        clearFlowLineHighlight();
+        clearCursorLineHighlight();
+        flowMetricsContext = null;
         createMainNetwork();
         document.getElementById("titleText").textContent = "Repository Dependency Graph";
         setFlowModeUI(false);
@@ -1488,34 +2039,6 @@ export function generateVisualization(
       network.fit({ animation: { duration: 320 } });
     });
 
-    document.getElementById("resetBtn").addEventListener("click", () => {
-      if (mode === "flow") {
-        if (flowData && flowInitialPositions) {
-          flowData.nodes.update(
-            Object.keys(flowInitialPositions).map((id) => ({
-              id: Number(id),
-              x: flowInitialPositions[id].x,
-              y: flowInitialPositions[id].y
-            }))
-          );
-        }
-        network.fit({ animation: { duration: 250 } });
-        return;
-      }
-      document.getElementById("searchInput").value = "";
-      resetMainStyles();
-      if (initialPositions) {
-        mainNodesData.update(
-          Object.keys(initialPositions).map((id) => ({
-            id: Number(id),
-            x: initialPositions[id].x,
-            y: initialPositions[id].y
-          }))
-        );
-      }
-      network.fit({ animation: { duration: 300 } });
-    });
-
     document.getElementById("backBtn").addEventListener("click", () => {
       goBackToMainGraph();
     });
@@ -1531,37 +2054,70 @@ export function generateVisualization(
       }
     });
 
-    document.getElementById("searchInput").addEventListener("input", (event) => {
-      if (mode !== "main") return;
-      const term = String(event.target.value || "").trim().toLowerCase();
-      if (!term) {
-        resetMainStyles();
-        return;
-      }
-      mainNodesData.update(
-        mainNodesData.get().map((n) => {
-          const ref = viewIdToNode.get(n.id);
-          const haystack = ((ref?.nodeId || "") + " " + (ref?.label || "")).toLowerCase();
-          const hit = haystack.includes(term);
-          return {
-            id: n.id,
-            opacity: hit ? 1 : 0.12,
-            borderWidth: hit ? 3 : 1.5,
-            color: hit ? "#ff3b3b" : (mainBaseNodeStyles.get(n.id)?.color || "#8ea4c8")
-          };
-        })
-      );
-      mainEdgesData.update(
-        mainEdgesData.get().map((e) => ({ id: e.id, color: { color: "#6d7fa2", opacity: 0.2 }, width: 1 }))
-      );
-    });
+    const searchInput = document.getElementById("searchInput");
+    if (searchInput) {
+      searchInput.addEventListener("input", (event) => {
+        if (mode !== "main") return;
+        const term = String(event.target.value || "").trim().toLowerCase();
+        if (!term) {
+          resetMainStyles();
+          return;
+        }
+        mainNodesData.update(
+          mainNodesData.get().map((n) => {
+            const ref = viewIdToNode.get(n.id);
+            const haystack = ((ref?.nodeId || "") + " " + (ref?.label || "")).toLowerCase();
+            const hit = haystack.includes(term);
+            return {
+              id: n.id,
+              opacity: hit ? 1 : 0.12,
+              borderWidth: hit ? 3 : 1.5,
+              color: hit ? "#ff3b3b" : (mainBaseNodeStyles.get(n.id)?.color || "#8ea4c8")
+            };
+          })
+        );
+        mainEdgesData.update(
+          mainEdgesData.get().map((e) => ({ id: e.id, color: { color: "#6d7fa2", opacity: 0.2 }, width: 1 }))
+        );
+      });
+    }
 
-    document.getElementById("collapseMetricsBtn").addEventListener("click", () => {
-      const panel = document.getElementById("metricsPanel");
-      const btn = document.getElementById("collapseMetricsBtn");
-      panel.classList.toggle("collapsed");
-      btn.textContent = panel.classList.contains("collapsed") ? "Expand" : "Collapse";
-    });
+    const codeView = document.getElementById("codeView");
+    if (codeView) {
+      codeView.addEventListener("wheel", (event) => {
+        event.stopPropagation();
+      }, { passive: true });
+      codeView.addEventListener("mousemove", (event) => {
+        if (mode !== "flow") return;
+        const target = event.target instanceof HTMLElement
+          ? event.target.closest(".code-line")
+          : null;
+        if (!target) {
+          clearCursorLineHighlight();
+          setFlowNodeGlow(null);
+          return;
+        }
+        const line = Number(target.dataset.line || 0);
+        if (!Number.isFinite(line) || line <= 0) return;
+        setCursorLineHighlight(line);
+        const match = findFlowNodeByLine(line);
+        if (match) {
+          setFlowNodeGlow(match.id);
+          setFlowNodeSelection(match.id);
+        } else {
+          setFlowNodeGlow(null);
+          setFlowNodeSelection(null);
+        }
+      });
+
+      codeView.addEventListener("mouseleave", () => {
+        if (mode !== "flow") return;
+        clearCursorLineHighlight();
+        setFlowNodeGlow(null);
+        setFlowNodeSelection(null);
+      });
+    }
+
     const controlsToggle = document.getElementById("controlsToggle");
     const controlDrawer = document.getElementById("controlDrawer");
     if (controlsToggle && controlDrawer) {
@@ -1572,27 +2128,48 @@ export function generateVisualization(
     }
 
     let metricsVisible = false;
+    function syncMetricsLayout() {
+      const side = document.querySelector(".side");
+      const codePanel = document.getElementById("codePanel");
+      const metricsPanel = document.getElementById("metricsPanel");
+      if (!side || !codePanel) return;
+      if (mode === "flow" && metricsVisible) {
+        side.classList.add("metrics-open");
+        codePanel.classList.add("hidden");
+        if (metricsPanel) metricsPanel.classList.remove("hidden");
+      } else {
+        side.classList.remove("metrics-open");
+        codePanel.classList.remove("hidden");
+        if (metricsPanel && mode === "flow") metricsPanel.classList.add("hidden");
+      }
+    }
+
     document.getElementById("toggleMetricsBtn").addEventListener("click", () => {
       metricsVisible = !metricsVisible;
       setPanelVisibility("metricsPanel", metricsVisible, "toggleMetricsBtn", "Metrics");
       document.getElementById("toggleMetricsBtn").textContent = metricsVisible ? "Hide Metrics" : "Show Metrics";
-    });
-    document.getElementById("collapseCodeBtn").addEventListener("click", () => {
-      const panel = document.getElementById("codePanel");
-      const btn = document.getElementById("collapseCodeBtn");
-      panel.classList.toggle("collapsed");
-      btn.textContent = panel.classList.contains("collapsed") ? "Expand" : "Collapse";
+      if (metricsVisible) {
+        renderMetricsForMode();
+      }
+      syncMetricsLayout();
+      if (controlDrawer && mode !== "flow") {
+        if (metricsVisible) {
+          controlDrawer.classList.add("open");
+        } else {
+          controlDrawer.classList.remove("open");
+        }
+      }
     });
 
     setPanelVisibility("metricsPanel", metricsVisible, "toggleMetricsBtn", "Metrics");
     document.getElementById("toggleMetricsBtn").textContent = metricsVisible ? "Hide Metrics" : "Show Metrics";
-    document.getElementById("collapseMetricsBtn").textContent =
-      document.getElementById("metricsPanel").classList.contains("collapsed") ? "Expand" : "Collapse";
-    document.getElementById("collapseCodeBtn").textContent =
-      document.getElementById("codePanel").classList.contains("collapsed") ? "Expand" : "Collapse";
+    syncMetricsLayout();
     renderTypeLegend();
     setFlowModeUI(false);
     renderRepoMetrics();
+    if (metricsVisible) {
+      renderMetricsForMode();
+    }
   </script>
 </body>
 </html>`;
