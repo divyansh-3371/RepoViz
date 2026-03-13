@@ -550,7 +550,6 @@ export function generateVisualization(
           <div class="title">Color Coding</div>
           <div id="typeLegend" class="legend-grid"></div>
         </div>
-        <button id="flowBackBtn" class="flow-back hidden">Back To Repo</button>
         <div id="flowLegend" class="flow-legend hidden">
           <div class="title">Flow Legend</div>
           <div class="item"><span>Ellipse</span><span>Start/End</span></div>
@@ -728,8 +727,8 @@ export function generateVisualization(
       const metricsDrawerSlot = document.getElementById("metricsDrawerSlot");
       const metricsSideSlot = document.getElementById("metricsSideSlot");
       const searchInput = document.getElementById("searchInput");
-      const canvasBack = document.getElementById("flowBackBtn");
       const flowLegend = document.getElementById("flowLegend");
+      const graphLegend = document.getElementById("graphLegend");
 
       if (topBack) {
         topBack.classList.remove("hidden");
@@ -759,14 +758,8 @@ export function generateVisualization(
           metricsDrawerSlot.appendChild(metricsPanel);
         }
       }
-      if (canvasBack) {
-        canvasBack.classList.toggle("hidden", !isFlow);
-        canvasBack.style.display = isFlow ? "inline-flex" : "none";
-        canvasBack.style.visibility = isFlow ? "visible" : "hidden";
-        canvasBack.style.opacity = isFlow ? "1" : "0";
-      }
-
       if (flowLegend) flowLegend.classList.toggle("hidden", !isFlow);
+      if (graphLegend) graphLegend.classList.toggle("hidden", isFlow);
       if (document.body) {
         if (isFlow) {
           document.body.classList.add("flow-mode");
@@ -2042,12 +2035,6 @@ export function generateVisualization(
     document.getElementById("backBtn").addEventListener("click", () => {
       goBackToMainGraph();
     });
-    const flowBackBtn = document.getElementById("flowBackBtn");
-    if (flowBackBtn) {
-      flowBackBtn.addEventListener("click", () => {
-        goBackToMainGraph();
-      });
-    }
     document.addEventListener("keydown", (event) => {
       if (event.key === "Escape" && mode === "flow") {
         goBackToMainGraph();
