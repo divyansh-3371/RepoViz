@@ -1,0 +1,12 @@
+{
+  "name": "ecommerce-platform",
+  "version": "1.0.0",
+  "description": "Demo e-commerce platform for RepoViz visualization - classic layered architecture",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "node src/main.js"
+  },
+  "keywords": ["ecommerce", "architecture", "demo", "visualization"],
+  "author": "",
+  "license": "MIT"
+}

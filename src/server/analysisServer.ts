@@ -4,12 +4,21 @@ import http from "http"
 import fs from "fs"
 import path from "path"
 import os from "os"
+import { initializeLanguages } from "../parsers/initializeLanguages"
 import { analyzeFileStructure } from "../parsers/codeAnalyzer"
 import { scanRepository } from "../core/fileScanner"
 import { detectExtensions } from "../core/languageDetector"
 import { buildGraph } from "../core/graphBuilder"
 import { getRepoPath } from "../core/githubHandler"
 import { generateVisualization } from "../core/visualizer"
+
+// Initialize language support
+try {
+  initializeLanguages()
+} catch (error) {
+  console.error("Failed to initialize language support:", error)
+  process.exit(1)
+}
 
 const app = express()
 let PORT = 3001

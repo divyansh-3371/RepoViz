@@ -9,7 +9,6 @@ import { generateVisualization } from "../core/visualizer"
 import { startAnalysisServer } from "../server/analysisServer"
 import * as fs from "fs"
 import * as path from "path"
-import open from "open"
 
 const program = new Command()
 
@@ -119,6 +118,7 @@ program
       // Generate visualization with server port
       const htmlPath = generateVisualization(graph, outputPath, serverPort)
       console.log("Opening visualization in browser...")
+      const open = (await import("open")).default
       await open(htmlPath)
 
       // Keep server running

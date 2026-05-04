@@ -1,11 +1,10 @@
 import { startAnalysisServer } from "./analysisServer"
-import open from "open"
 
 startAnalysisServer()
   .then((port) => {
     const url = `http://localhost:${port}`
-    console.log(`Opening landing page at ${url}`)
-    return open(url)
+    console.log(`Server is running at ${url}`)
+    console.log(`Open this URL in your browser to use the visualizer`)
   })
   .catch((error) => {
     console.error("Failed to start server:", error)

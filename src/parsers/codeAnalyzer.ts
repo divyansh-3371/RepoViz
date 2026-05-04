@@ -1,5 +1,7 @@
 import Parser from "tree-sitter"
-import { parseFile } from "./parseFile"
+import { parseFile, ParseFileResult } from "./parseFile"
+import { LanguageProfile } from "./languages/languageProfile"
+import { ASTNodeMapper } from "./languages/astNodeMapper"
 import * as fs from "fs"
 
 export type CodeEntityType =
@@ -36,10 +38,16 @@ type ScopeInfo = {
   kind?: CodeEntityType
 }
 
+/**
+ * Analyze code structure from a file
+ * Extracts classes, functions, methods, control flow, and calls
+ *
+ * @param filePath Path to the file to analyze
+ * @returns CodeStructure with all extracted entities and connections
+ */
 export function analyzeFileStructure(filePath: string): CodeStructure {
-  const isPython = filePath.toLowerCase().endsWith(".py")
-  const tree = parseFile(filePath)
-  if (!tree) {
+  const parseResult = parseFile(filePath)
+  if (!parseResult) {
     return {
       filePath,
       fileName: filePath.split(/[\\/]/).pop() || filePath,
@@ -47,6 +55,25 @@ export function analyzeFileStructure(filePath: string): CodeStructure {
       connections: []
     }
   }
+
+  return analyzeFileStructureWithProfile(filePath, parseResult.tree, parseResult.profile)
+}
+
+/**
+ * Analyze code structure with a known language profile
+ * This is the internal implementation that uses ASTNodeMapper for language-agnostic analysis
+ *
+ * @param filePath Path to the file
+ * @param tree The parsed syntax tree
+ * @param profile The language profile
+ * @returns CodeStructure with all extracted entities and connections
+ */
+export function analyzeFileStructureWithProfile(
+  filePath: string,
+  tree: Parser.Tree,
+  profile: LanguageProfile
+): CodeStructure {
+  const mapper = new ASTNodeMapper(profile)
 
   const entities: CodeEntity[] = []
   const connections: Array<{ from: string; to: string; type: string }> = []
@@ -131,32 +158,19 @@ export function analyzeFileStructure(filePath: string): CodeStructure {
   }
 
   function conditionLabel(node: Parser.SyntaxNode): string {
-    const cond =
-      node.childForFieldName("condition") ||
-      node.namedChildren.find((c) => c.type.includes("expression"))
-    if (!cond) return compactText(node.type.replace(/_/g, " "))
-    if (node.type === "switch_statement") return compactText(`switch (${cond.text})`)
-    if (node.type === "if_statement") return compactText(`if (${cond.text})`)
-    return compactText(`${node.type.replace(/_statement$/, "")} (${cond.text})`)
+    return compactText(mapper.getConditionLabel(node))
   }
 
   function loopLabel(node: Parser.SyntaxNode): string {
-    if (node.type === "for_statement") return compactText(`for (...)`)
-    if (node.type === "for_in_statement") return compactText(`for-in (...)`)
-    if (node.type === "for_of_statement") return compactText(`for-of (...)`)
-    if (node.type === "while_statement") {
-      const cond = node.childForFieldName("condition")
-      return compactText(`while (${cond?.text || "..."})`)
-    }
-    if (node.type === "do_statement") return compactText("do ... while (...)")
-    return compactText(node.type.replace(/_/g, " "))
+    return compactText(mapper.getLoopLabel(node))
   }
 
   function getFunctionName(node: Parser.SyntaxNode): string | null {
-    const nameField = node.childForFieldName("name")
-    if (nameField) return nameField.text
+    // Use profile's name extraction if available
+    const profileName = mapper.getFunctionName(node)
+    if (profileName) return profileName
 
-    // const foo = () => {}
+    // Fallback: const foo = () => {}
     if (
       node.type === "arrow_function" ||
       node.type === "function_expression" ||
@@ -173,48 +187,7 @@ export function analyzeFileStructure(filePath: string): CodeStructure {
   }
 
   function statementChildren(node: Parser.SyntaxNode): Parser.SyntaxNode[] {
-    if (isPython) {
-      return node.namedChildren.filter((child) =>
-        [
-          "expression_statement",
-          "if_statement",
-          "for_statement",
-          "while_statement",
-          "for_in_statement",
-          "return_statement",
-          "try_statement",
-          "raise_statement",
-          "break_statement",
-          "continue_statement",
-          "assignment",
-          "augmented_assignment",
-          "import_statement",
-          "import_from_statement",
-          "with_statement",
-          "assert_statement",
-          "pass_statement"
-        ].includes(child.type)
-      )
-    }
-    return node.namedChildren.filter((child) =>
-      [
-        "expression_statement",
-        "if_statement",
-        "for_statement",
-        "while_statement",
-        "for_in_statement",
-        "for_of_statement",
-        "do_statement",
-        "return_statement",
-        "switch_statement",
-        "try_statement",
-        "throw_statement",
-        "break_statement",
-        "continue_statement",
-        "variable_declaration",
-        "lexical_declaration"
-      ].includes(child.type)
-    )
+    return mapper.getStatementChildren(node)
   }
 
   function firstMeaningfulStatement(
@@ -568,8 +541,9 @@ export function analyzeFileStructure(filePath: string): CodeStructure {
   function walk(node: Parser.SyntaxNode, scopeStack: ScopeInfo[]) {
     const currentScope = scopeStack[scopeStack.length - 1]
 
-    if (node.type === "class_definition") {
-      const name = node.childForFieldName("name")?.text || "Class"
+    // Class definition
+    if (mapper.isClassDefinition(node)) {
+      const name = mapper.getClassName(node) || "Class"
       const classId = addEntity("class", name, node)
       addConnection(currentScope.id, classId, "contains")
       const nextStack = [...scopeStack, { id: classId, name, kind: "class" as CodeEntityType }]
@@ -577,57 +551,33 @@ export function analyzeFileStructure(filePath: string): CodeStructure {
       return
     }
 
-    if (node.type === "function_definition") {
-      const fnName = node.childForFieldName("name")?.text || "function"
+    // Function at module or class level
+    if (mapper.isFunctionDefinition(node)) {
+      const fnName = mapper.getFunctionName(node) || getFunctionName(node) || "function"
       const fnType: CodeEntityType =
         currentScope?.kind === "class" ? "method" : "function"
       const fnId = addEntity(fnType, fnName, node)
       addConnection(currentScope.id, fnId, "contains")
       analyzeScope(node, { id: fnId, name: fnName, kind: fnType })
       for (const child of node.namedChildren) {
-        if (child.type !== "statement_block" && child.type !== "block") {
-          walk(child, [...scopeStack, { id: fnId, name: fnName, kind: fnType as CodeEntityType }])
-        }
+        // Skip body to avoid duplicate analysis
+        const body = mapper.getScopeBody(node)
+        if (body && child === body) continue
+        walk(child, [...scopeStack, { id: fnId, name: fnName, kind: fnType as CodeEntityType }])
       }
       return
     }
 
-    if (node.type === "class_declaration") {
-      const name = node.childForFieldName("name")?.text || "Class"
-      const classId = addEntity("class", name, node)
-      addConnection(currentScope.id, classId, "contains")
-      const nextStack = [...scopeStack, { id: classId, name, kind: "class" as CodeEntityType }]
-      for (const child of node.namedChildren) walk(child, nextStack)
-      return
-    }
-
-    if (
-      node.type === "function_declaration" ||
-      node.type === "arrow_function" ||
-      node.type === "function_expression" ||
-      node.type === "generator_function"
-    ) {
-      const fnName = getFunctionName(node) || "function"
-      const fnId = addEntity("function", fnName, node)
-      addConnection(currentScope.id, fnId, "contains")
-      analyzeScope(node, { id: fnId, name: fnName, kind: "function" })
-      for (const child of node.namedChildren) {
-        if (child.type !== "statement_block") {
-          walk(child, [...scopeStack, { id: fnId, name: fnName, kind: "function" as CodeEntityType }])
-        }
-      }
-      return
-    }
-
-    if (node.type === "method_definition") {
-      const mName = node.childForFieldName("name")?.text || "method"
+    // Method within a class
+    if (mapper.isMethodDefinition(node)) {
+      const mName = mapper.getMethodName(node) || "method"
       const methodId = addEntity("method", mName, node)
       addConnection(currentScope.id, methodId, "contains")
       analyzeScope(node, { id: methodId, name: mName, kind: "method" })
       for (const child of node.namedChildren) {
-        if (child.type !== "statement_block") {
-          walk(child, [...scopeStack, { id: methodId, name: mName, kind: "method" }])
-        }
+        const body = mapper.getScopeBody(node)
+        if (body && child === body) continue
+        walk(child, [...scopeStack, { id: methodId, name: mName, kind: "method" }])
       }
       return
     }
@@ -639,7 +589,8 @@ export function analyzeFileStructure(filePath: string): CodeStructure {
 
   walk(tree.rootNode, [moduleScope])
 
-  if (isPython && entities.filter((e) => e.type !== "module").length === 0) {
+  // Fallback parsing for languages that support regex fallback (e.g., Python)
+  if (mapper.hasRegexFallback() && entities.filter((e) => e.type !== "module").length === 0) {
     try {
       const src = fs.readFileSync(filePath, "utf8")
       const lines = src.split(/\r?\n/)

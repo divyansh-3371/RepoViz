@@ -1051,7 +1051,7 @@ export function generateVisualization(
         }
 
         clickTimeout = setTimeout(async () => {
-          highlightPathRed(node.nodeId);
+          highlightSelection(node.nodeId);
           await loadSource(node);
           clickTimeout = null;
         }, 250);
@@ -1441,52 +1441,68 @@ export function generateVisualization(
       );
     }
 
-    function highlightPathRed(nodeId) {
-      if (mode !== "main") return;
-      const start = nodeIdToViewId.get(nodeId);
-      if (start === undefined) return;
+    function highlightSelection(nodeId) {
+    if (mode !== "main") return;
 
-      const connectedNodes = new Set([start]);
-      const connectedEdges = new Set();
-      const queue = [start];
+    const selectedId = nodeIdToViewId.get(nodeId);
+    if (selectedId === undefined) return;
 
-      while (queue.length) {
-        const current = queue.shift();
-        for (const edge of viewData.edges) {
-          if (edge.from === current || edge.to === current) {
-            connectedEdges.add(edge.id);
-            if (!connectedNodes.has(edge.from)) {
-              connectedNodes.add(edge.from);
-              queue.push(edge.from);
-            }
-            if (!connectedNodes.has(edge.to)) {
-              connectedNodes.add(edge.to);
-              queue.push(edge.to);
-            }
-          }
-        }
+    const highlightColor = "#ff3b3b";   // main highlight (red)
+    const fadedColor = "#475569";       // muted edges
+
+    const connectedNodes = new Set([selectedId]);
+    const connectedEdges = new Set();
+
+    // Only DIRECT connections (not BFS)
+    viewData.edges.forEach((edge) => {
+      if (edge.from === selectedId || edge.to === selectedId) {
+        connectedEdges.add(edge.id);
+        connectedNodes.add(edge.from);
+        connectedNodes.add(edge.to);
       }
+    });
 
-      mainNodesData.update(
-        mainNodesData.get().map((n) => {
-          if (!connectedNodes.has(n.id)) return { id: n.id, opacity: 0.12 };
+    // Update nodes
+    mainNodesData.update(
+      mainNodesData.get().map((n) => {
+        if (!connectedNodes.has(n.id)) {
           return {
             id: n.id,
-            opacity: 1,
-            borderWidth: n.id === start ? 4 : 2,
-            color: n.id === start ? "#ff3b3b" : (mainBaseNodeStyles.get(n.id)?.color || "#8ea4c8")
+            opacity: 0.15
           };
-        })
-      );
-      mainEdgesData.update(
-        mainEdgesData.get().map((e) => {
-          if (!connectedEdges.has(e.id)) {
-            return { id: e.id, color: { color: "#555f73", opacity: 0.15 }, width: 1 };
-          }
-          return { id: e.id, color: { color: "#ff3b3b", opacity: 1 }, width: 2.4 };
-        })
-      );
-    }
+        }
+
+        return {
+          id: n.id,
+          opacity: 1,
+          borderWidth: n.id === selectedId ? 4 : 2,
+          color:
+            n.id === selectedId
+              ? highlightColor   // selected node
+              : "#94a3b8"        // neighbor nodes
+        };
+      })
+    );
+
+    // Update edges
+    mainEdgesData.update(
+      mainEdgesData.get().map((e) => {
+        if (!connectedEdges.has(e.id)) {
+          return {
+            id: e.id,
+            color: { color: fadedColor, opacity: 0.15 },
+            width: 1
+          };
+        }
+
+        return {
+          id: e.id,
+          color: { color: highlightColor, opacity: 1 },
+          width: 2.5
+        };
+      })
+    );
+  }
 
     async function loadSource(node) {
       const meta = document.getElementById("codeMeta");

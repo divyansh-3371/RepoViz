@@ -26,11 +26,12 @@ export function buildGraph(files: string[]): Graph {
       fileType: classifyFileType(filePath)
     })
 
-    const tree = parseFile(filePath)
+    const parseResult = parseFile(filePath)
 
-    if (!tree) continue
+    if (!parseResult) continue
 
-    const imports = extractImports(tree)
+    const { tree, profile } = parseResult
+    const imports = extractImports(tree, profile)
     const fromDir = path.dirname(filePath)
 
     for (const imp of imports) {
