@@ -1,0 +1,20 @@
+{
+  "name": "multi-language",
+  "edges": [
+    {
+      "from": "script.js",
+      "to": "helper.js",
+      "isExternal": false
+    },
+    {
+      "from": "processor.py",
+      "to": "json",
+      "isExternal": true
+    },
+    {
+      "from": "processor.py",
+      "to": "pathlib",
+      "isExternal": true
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RepoViz</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <main>
+    <header>
+      <h1>RepoViz</h1>
+      <p id="currentUrl">Reading current tab...</p>
+    </header>
+
+    <section class="actions" aria-label="RepoViz actions">
+      <button id="analyzeBtn" type="button">Analyze</button>
+      <button id="uploadBtn" type="button">Upload Folder</button>
+      <input id="folderInput" type="file" webkitdirectory multiple hidden>
+    </section>
+
+    <p id="status" role="status">Start the RepoViz server before using the extension.</p>
+  </main>
+
+  <script src="popup.js"></script>
+</body>
+</html>

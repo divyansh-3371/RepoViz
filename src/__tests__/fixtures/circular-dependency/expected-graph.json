@@ -1,0 +1,20 @@
+{
+  "name": "circular-dependency",
+  "edges": [
+    {
+      "from": "fileA.js",
+      "to": "fileB.js",
+      "isExternal": false
+    },
+    {
+      "from": "fileB.js",
+      "to": "fileC.js",
+      "isExternal": false
+    },
+    {
+      "from": "fileC.js",
+      "to": "fileA.js",
+      "isExternal": false
+    }
+  ]
+}

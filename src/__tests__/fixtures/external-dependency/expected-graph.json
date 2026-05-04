@@ -1,0 +1,20 @@
+{
+  "name": "external-dependency",
+  "edges": [
+    {
+      "from": "app.js",
+      "to": "express",
+      "isExternal": true
+    },
+    {
+      "from": "app.js",
+      "to": "lodash",
+      "isExternal": true
+    },
+    {
+      "from": "app.js",
+      "to": "axios",
+      "isExternal": true
+    }
+  ]
+}

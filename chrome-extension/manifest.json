@@ -1,0 +1,12 @@
+{
+  "manifest_version": 3,
+  "name": "RepoViz Link Sender",
+  "version": "1.0.0",
+  "description": "Sends the current tab URL or a selected folder to the local RepoViz server.",
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "RepoViz"
+  },
+  "permissions": ["tabs"],
+  "host_permissions": ["http://localhost/*", "http://127.0.0.1/*"]
+}

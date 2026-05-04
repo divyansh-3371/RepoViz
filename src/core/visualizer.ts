@@ -374,6 +374,43 @@ export function generateVisualization(
       font-size: 16px;
       font-weight: 700;
     }
+    .score-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .score-card {
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      padding: 9px;
+      background: #111a2b;
+    }
+    .score-card .head {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 11px;
+      margin-bottom: 6px;
+    }
+    .score-card .score-value {
+      color: var(--text);
+      font-size: 18px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+    .score-card .score-bar {
+      height: 7px;
+      border-radius: 999px;
+      background: #0e1526;
+      border: 1px solid var(--line);
+      overflow: hidden;
+    }
+    .score-card .score-fill {
+      height: 100%;
+      border-radius: 999px;
+    }
     .chart-row .head {
       display: flex;
       justify-content: space-between;
@@ -1165,6 +1202,24 @@ export function generateVisualization(
       return '<div class="metric-card"><div class="label">' + label + '</div><div class="value">' + value + '</div></div>';
     }
 
+    function clampScore(value) {
+      return Math.max(0, Math.min(100, Math.round(value)));
+    }
+
+    function scoreColor(score) {
+      if (score >= 80) return "#22c55e";
+      if (score >= 60) return "#facc15";
+      return "#ff7a7a";
+    }
+
+    function scoreCard(label, score) {
+      const safeScore = clampScore(score);
+      return '<div class="score-card">' +
+        '<div class="head"><span>' + label + '</span><span class="score-value">' + safeScore + '</span></div>' +
+        '<div class="score-bar"><div class="score-fill" style="width:' + safeScore + '%;background:' + scoreColor(safeScore) + ';"></div></div>' +
+      '</div>';
+    }
+
     function chartRow(label, value, maxValue, rawValue) {
       const raw = rawValue === undefined ? Number(value) : rawValue;
       const pct = Math.max(5, Math.min(100, Math.round((raw / maxValue) * 100)));
@@ -1209,6 +1264,42 @@ export function generateVisualization(
       return [...cycles].map((entry) => entry.split("|"));
     }
 
+    function calculateRepoScores(graphData, localEdges, cycles, outgoing, incoming, orphans) {
+      const fileCount = Math.max(1, graphData.nodes.length);
+      const totalLoc = graphData.nodes.reduce((sum, node) => sum + (node.loc || 0), 0);
+      const avgLoc = totalLoc / fileCount;
+      const largeFiles = graphData.nodes.filter((node) => (node.loc || 0) > 300 || (node.sizeBytes || 0) > 50000);
+      const maxFanOut = Math.max(0, ...graphData.nodes.map((node) => outgoing.get(node.id) || 0));
+      const maxFanIn = Math.max(0, ...graphData.nodes.map((node) => incoming.get(node.id) || 0));
+      const avgLocalDeps = localEdges.length / fileCount;
+      const density = fileCount > 1 ? localEdges.length / (fileCount * (fileCount - 1)) : 0;
+      const externalCount = graphData.edges.filter((edge) => !incoming.has(edge.to)).length;
+      const cycleNodeCount = new Set(cycles.flat()).size;
+
+      const cycleRisk = clampScore(100 - cycles.length * 20 - (cycleNodeCount / fileCount) * 35);
+      const coupling = clampScore(100 - avgLocalDeps * 12 - maxFanOut * 4 - maxFanIn * 3 - density * 120);
+      const maintainability = clampScore(100 - avgLoc / 20 - (largeFiles.length / fileCount) * 35 - cycles.length * 8 - avgLocalDeps * 5);
+      const modularity = clampScore(100 - density * 220 - (orphans.length / fileCount) * 10 - cycles.length * 8);
+      const complexity = clampScore(100 - avgLocalDeps * 10 - avgLoc / 25 - maxFanOut * 3 - externalCount / fileCount * 4);
+      const overall = clampScore(
+        maintainability * 0.28 +
+        coupling * 0.22 +
+        modularity * 0.2 +
+        cycleRisk * 0.18 +
+        complexity * 0.12
+      );
+
+      return {
+        overall,
+        maintainability,
+        coupling,
+        modularity,
+        cycleRisk,
+        complexity,
+        largeFiles
+      };
+    }
+
     function renderRepoMetrics() {
       const localNodeIds = new Set(graphData.nodes.map((n) => n.id));
       const localEdges = graphData.edges.filter((e) => localNodeIds.has(e.from) && localNodeIds.has(e.to));
@@ -1235,6 +1326,7 @@ export function generateVisualization(
       );
       const leafModules = graphData.nodes.filter((n) => (outgoing.get(n.id) || 0) === 0);
       const cycles = findCycles(graphData.nodes, localEdges);
+      const scores = calculateRepoScores(graphData, localEdges, cycles, outgoing, incoming, orphans);
 
       const totalLoc = graphData.nodes.reduce((s, n) => s + (n.loc || 0), 0);
       const totalSize = graphData.nodes.reduce((s, n) => s + (n.sizeBytes || 0), 0);
@@ -1256,6 +1348,14 @@ export function generateVisualization(
         externalImports.size + " external imports";
 
       document.getElementById("metricsBody").innerHTML =
+        '<div class="score-grid">' +
+          scoreCard("Overall Health", scores.overall) +
+          scoreCard("Maintainability", scores.maintainability) +
+          scoreCard("Coupling", scores.coupling) +
+          scoreCard("Modularity", scores.modularity) +
+          scoreCard("Cycle Safety", scores.cycleRisk) +
+          scoreCard("Complexity Control", scores.complexity) +
+        "</div>" +
         '<div class="metrics-grid">' +
           metricCard("Files", graphData.nodes.length) +
           metricCard("Local Edges", localEdges.length) +
@@ -1280,6 +1380,7 @@ export function generateVisualization(
         '<div class="list">' +
           '<div class="list-item">Orphan files: ' + orphans.length + '</div>' +
           '<div class="list-item">Leaf modules (no outgoing deps): ' + leafModules.length + '</div>' +
+          '<div class="list-item">Large files: ' + scores.largeFiles.length + '</div>' +
           (cycles.length
             ? cycles.slice(0, 5).map((cycle) => '<div class="list-item">Cycle: ' + cycle.map(shortName).join(" -> ") + '</div>').join("")
             : '<div class="list-item">No circular dependencies detected.</div>') +

@@ -1,0 +1,15 @@
+{
+  "name": "missing-import",
+  "edges": [
+    {
+      "from": "app.js",
+      "to": "./path/that/does/not/exist",
+      "isExternal": true
+    },
+    {
+      "from": "app.js",
+      "to": "express",
+      "isExternal": true
+    }
+  ]
+}

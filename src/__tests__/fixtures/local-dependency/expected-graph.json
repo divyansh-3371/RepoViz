@@ -1,0 +1,20 @@
+{
+  "name": "local-dependency",
+  "edges": [
+    {
+      "from": "main.js",
+      "to": "utils.js",
+      "isExternal": false
+    },
+    {
+      "from": "main.js",
+      "to": "processor.js",
+      "isExternal": false
+    },
+    {
+      "from": "processor.js",
+      "to": "utils.js",
+      "isExternal": false
+    }
+  ]
+}

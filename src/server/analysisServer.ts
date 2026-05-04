@@ -23,6 +23,7 @@ try {
 const app = express()
 let PORT = 3001
 const MAX_SOURCE_BYTES = 1024 * 1024
+const MAX_UPLOAD_BYTES = 50 * 1024 * 1024
 let currentVisualizationHtml: string | null = null
 let currentRepoCleanup: (() => void) | null = null
 
@@ -75,7 +76,7 @@ process.on("unhandledRejection", (reason) => {
 })
 
 app.use(cors())
-app.use(express.json())
+app.use(express.json({ limit: "50mb" }))
 
 function safeReadSource(filePath: string): string {
   const fileStat = fs.statSync(filePath)
@@ -334,6 +335,59 @@ async function buildVisualization(input: string): Promise<string> {
   return fs.readFileSync(htmlPath, "utf8");
 }
 
+type UploadedFile = {
+  path?: string
+  content?: string
+}
+
+function safeUploadPath(rootDir: string, relativePath: string): string {
+  const normalized = path.normalize(relativePath).replace(/^(\.\.[/\\])+/, "")
+  const targetPath = path.resolve(rootDir, normalized)
+  const resolvedRoot = path.resolve(rootDir)
+
+  if (targetPath !== resolvedRoot && !targetPath.startsWith(resolvedRoot + path.sep)) {
+    throw new Error(`Invalid uploaded file path: ${relativePath}`)
+  }
+
+  return targetPath
+}
+
+function writeUploadedFiles(files: UploadedFile[]): string {
+  if (!Array.isArray(files) || files.length === 0) {
+    throw new Error("files are required")
+  }
+
+  let totalBytes = 0
+  let writtenFiles = 0
+  const uploadDir = fs.mkdtempSync(path.join(os.tmpdir(), "repo-visualizer-upload-"))
+  tempDirsToClean.push(uploadDir)
+
+  for (const file of files) {
+    const relativePath = String(file.path || "").trim()
+    const content = String(file.content ?? "")
+
+    if (!relativePath) {
+      continue
+    }
+
+    totalBytes += Buffer.byteLength(content, "utf8")
+    if (totalBytes > MAX_UPLOAD_BYTES) {
+      throw new Error("Uploaded folder is too large")
+    }
+
+    const targetPath = safeUploadPath(uploadDir, relativePath)
+    fs.mkdirSync(path.dirname(targetPath), { recursive: true })
+    fs.writeFileSync(targetPath, content, "utf8")
+    writtenFiles += 1
+  }
+
+  if (writtenFiles === 0) {
+    throw new Error("No files were uploaded")
+  }
+
+  return uploadDir
+}
+
 app.get("/", (_req: Request, res: Response) => {
   res.status(200).send(landingPage());
 });
@@ -368,6 +422,20 @@ app.post("/api/visualize", async (req: Request, res: Response) => {
     });
   }
 });
+
+app.post("/api/upload-folder", async (req: Request, res: Response) => {
+  try {
+    const uploadDir = writeUploadedFiles(req.body?.files)
+    currentVisualizationHtml = await buildVisualization(uploadDir)
+    return res.json({ ok: true, url: "/visualization" })
+  } catch (error) {
+    console.error("Folder upload visualization error:", error)
+    return res.status(500).json({
+      error: "Failed to build visualization",
+      message: error instanceof Error ? error.message : "Unknown error"
+    })
+  }
+})
 
 app.get("/api/analyze", (req: Request, res: Response) => {
   const filePath = req.query.file as string

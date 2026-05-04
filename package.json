@@ -7,6 +7,7 @@
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "start": "ts-node src/server/index.ts",
+    "evaluate:ground-truth": "ts-node src/cli/evaluateGroundTruth.ts",
     "dev": "ts-node src/cli/index.ts"
   },
   "keywords": [],
